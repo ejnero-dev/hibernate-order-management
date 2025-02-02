@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Interfaz de Consola",
+            "request": "launch",
+            "mainClass": "acceso.datos.Main",
+            "args": ["-i", "consola"],
+            "projectName": "tarea4_1"
+        },
+        {
+            "type": "java",
+            "name": "Interfaz Gráfica",
+            "request": "launch",
+            "mainClass": "acceso.datos.Main", 
+            "args": ["-i", "grafica"],
+            "projectName": "tarea4_1"
+        }
+    ]
+}
