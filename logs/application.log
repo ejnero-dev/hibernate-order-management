@@ -1,0 +1,53 @@
+20:42:24.531 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+20:42:24.544 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+20:42:24.568 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:42:24.726 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
+20:42:24.733 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:42:24.733 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+20:42:24.744 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+20:42:24.746 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+20:42:24.746 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+20:42:24.746 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+20:42:24.746 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+20:42:24.746 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+20:44:46.152 [AWT-EventQueue-0] INFO  a.d.dao.impl.sqlite.SQLiteClienteDAO - Cliente insertado correctamente con ID: 5
+20:45:28.393 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+20:46:24.119 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+20:46:24.132 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+20:46:24.158 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:46:24.323 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
+20:46:24.325 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:46:24.325 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+20:46:24.338 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+20:46:24.339 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+20:46:24.339 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+20:46:24.339 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+20:46:24.339 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+20:46:24.343 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+20:48:46.669 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+20:52:30.897 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+20:52:30.934 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+20:52:31.027 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:52:31.580 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
+20:52:31.589 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:52:31.589 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+20:52:31.643 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+20:52:31.648 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+20:52:31.648 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+20:52:31.648 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+20:52:31.648 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+20:52:31.667 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+20:53:42.971 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+20:53:51.821 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+20:53:51.858 [main] INFO  acceso.datos.Main - Interfaz seleccionada: consola
+20:53:51.951 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:53:52.494 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
+20:53:52.503 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:53:52.506 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+20:53:52.554 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+20:53:52.558 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+20:53:52.560 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+20:53:52.562 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+20:53:52.562 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+20:53:52.578 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
+20:54:38.016 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente

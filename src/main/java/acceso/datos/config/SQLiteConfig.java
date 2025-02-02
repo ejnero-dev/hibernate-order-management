@@ -5,6 +5,9 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import acceso.datos.util.DatabaseException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.sql.DataSource;
 
 import java.io.IOException;
@@ -19,6 +22,7 @@ public class SQLiteConfig implements DatabaseConfig {
     private static final int DEFAULT_MIN_POOL_SIZE = 1;
     private final String url;
     private HikariDataSource dataSource;
+    private static final Logger logger = LoggerFactory.getLogger(SQLiteConfig.class);
 
     public SQLiteConfig(String url) {
         this.url = url;
@@ -44,31 +48,33 @@ private void initializeDataSource() {
 }
 
 private void initializeDatabase() {
+    logger.info("Iniciando inicialización de base de datos SQLite");
     try (Connection conn = dataSource.getConnection();
          Statement stmt = conn.createStatement()) {
         
-        // Leer el contenido del script SQL
+        logger.debug("Leyendo script SQL de inicialización");
         String sqlScript = new String(Files.readAllBytes(Paths.get("src/main/resources/pedidos.sql")));
         
-        // Dividir el script en sentencias individuales
         String[] statements = sqlScript.split(";");
         
         for (String statement : statements) {
             statement = statement.trim();
             if (!statement.isEmpty()) {
                 try {
-                    // Añadir IF NOT EXISTS o usar operaciones que no fallen si ya existen
                     if (statement.startsWith("CREATE TABLE")) {
+                        logger.debug("Ejecutando creación de tabla: {}", 
+                            statement.substring(0, statement.indexOf("(")).trim());
                         statement = statement.replace("CREATE TABLE", "CREATE TABLE IF NOT EXISTS");
                     }
                     stmt.execute(statement);
                 } catch (SQLException e) {
-                    // Ignorar errores de tablas ya existentes
-                    System.out.println("Advertencia: " + e.getMessage());
+                    logger.warn("Advertencia al ejecutar statement: {}", e.getMessage());
                 }
             }
         }
+        logger.info("Base de datos inicializada correctamente");
     } catch (SQLException | IOException e) {
+        logger.error("Error fatal al inicializar base de datos", e);
         throw new DatabaseException("Error inicializando base de datos", e);
     }
 }

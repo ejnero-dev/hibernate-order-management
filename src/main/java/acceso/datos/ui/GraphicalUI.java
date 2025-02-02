@@ -1,5 +1,6 @@
 package acceso.datos.ui;
 
+import acceso.datos.Main;
 import acceso.datos.dao.interfaces.ClienteDAO;
 import acceso.datos.dao.interfaces.PedidoDAO;
 import acceso.datos.dao.interfaces.ZonaEnvioDAO;
@@ -7,9 +8,13 @@ import acceso.datos.model.Cliente;
 import acceso.datos.model.Pedido;
 import acceso.datos.model.ZonaEnvio;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.Component;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -24,6 +29,7 @@ public class GraphicalUI implements UI {
     private volatile int selectedOption = -1;
     private final Object lock = new Object();
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public GraphicalUI(ClienteDAO clienteDAO, PedidoDAO pedidoDAO, ZonaEnvioDAO zonaEnvioDAO) {
         this.clienteDAO = clienteDAO;
@@ -72,6 +78,7 @@ public class GraphicalUI implements UI {
                 selectedOption = 0;
                 lock.notify();
             }
+            System.exit(0);
         });
     }
 
@@ -179,19 +186,19 @@ public class GraphicalUI implements UI {
     private void nuevoCliente() {
         JPanel panel = new JPanel(new GridLayout(5, 2, 5, 5));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
-
+    
         panel.add(new JLabel("Nombre:"));
         JTextField nombreField = new JTextField();
         panel.add(nombreField);
-
+    
         panel.add(new JLabel("Email:"));
         JTextField emailField = new JTextField();
         panel.add(emailField);
-
+    
         panel.add(new JLabel("Teléfono:"));
         JTextField telefonoField = new JTextField();
         panel.add(telefonoField);
-
+    
         panel.add(new JLabel("Zona:"));
         JComboBox<ZonaEnvio> zonaCombo = new JComboBox<>();
         try {
@@ -204,21 +211,43 @@ public class GraphicalUI implements UI {
             return;
         }
         panel.add(zonaCombo);
-
+    
         int result = JOptionPane.showConfirmDialog(gui, panel, "Nuevo Cliente",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-
+    
         if (result == JOptionPane.OK_OPTION) {
             try {
                 Cliente cliente = new Cliente();
-                cliente.setNombre(nombreField.getText());
-                cliente.setEmail(emailField.getText());
-                cliente.setTelefono(telefonoField.getText());
+                
+                // Validaciones con mensajes de error específicos
+                try {
+                    cliente.setNombre(nombreField.getText());
+                } catch (IllegalArgumentException e) {
+                    mostrarError("Error en el nombre: " + e.getMessage());
+                    return;
+                }
+    
+                try {
+                    cliente.setEmail(emailField.getText());
+                } catch (IllegalArgumentException e) {
+                    mostrarError("Error en el email: " + e.getMessage());
+                    return;
+                }
+    
+                try {
+                    cliente.setTelefono(telefonoField.getText());
+                } catch (IllegalArgumentException e) {
+                    mostrarError("Error en el teléfono: " + e.getMessage());
+                    return;
+                }
+    
                 cliente.setIdZona(((ZonaEnvio) zonaCombo.getSelectedItem()).getIdZona());
-
+    
                 clienteDAO.insert(cliente);
                 mostrarMensaje("Cliente creado correctamente");
+                logger.info("Cliente creado: {}", cliente.getNombre());
             } catch (SQLException ex) {
+                logger.error("Error al crear cliente: {}", ex.getMessage());
                 mostrarError("Error al crear el cliente: " + ex.getMessage());
             }
         }
@@ -581,6 +610,17 @@ public class GraphicalUI implements UI {
     public void consultarPedidosCliente() throws SQLException {
         // Primero seleccionar el cliente
         JComboBox<Cliente> clienteCombo = new JComboBox<>();
+        clienteCombo.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value,
+                    int index, boolean isSelected, boolean cellHasFocus) {
+                if (value instanceof Cliente cliente) {
+                    value = String.format("%s - %s", cliente.getNombre(), cliente.getEmail());
+                }
+                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            }
+        });
+
         try {
             List<Cliente> clientes = clienteDAO.getAll();
             for (Cliente cliente : clientes) {
@@ -639,13 +679,14 @@ public class GraphicalUI implements UI {
         }
     }
 
-    // Método auxiliar para formatear moneda
-    private String formatMoney(double amount) {
-        return String.format("%.2f€", amount);
-    }
+    // Método auxiliar para formatear moneda los dejo por si los necesito más
+    // adelante
+    // private String formatMoney(double amount) {
+    // return String.format("%.2f€", amount);
+    // }
 
-    // Método auxiliar para formatear fecha
-    private String formatDate(LocalDate date) {
-        return date.format(dateFormatter);
-    }
+    // // Método auxiliar para formatear fecha
+    // private String formatDate(LocalDate date) {
+    // return date.format(dateFormatter);
+    // }
 }

@@ -13,29 +13,41 @@ import acceso.datos.ui.GraphicalUI;
 import acceso.datos.ui.UI;
 
 import org.apache.commons.cli.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
-        Options options = new Options();
-        options.addOption("i", "interfaz", true, "Interfaz a usar (consola/grafica)");
+        logger.info("Iniciando aplicación de gestión de pedidos");
         
-        CommandLineParser parser = new DefaultParser();
         try {
+            // Configuración de opciones
+            logger.debug("Configurando opciones de línea de comandos");
+            Options options = new Options();
+            options.addOption("i", "interfaz", true, "Interfaz a usar (consola/grafica)");
+            
+            CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(options, args);
             
             // Obtener la interfaz seleccionada
             String interfaz = cmd.getOptionValue("i", "consola");
+            logger.info("Interfaz seleccionada: {}", interfaz);
             
             // Configuración de base de datos
+            logger.debug("Inicializando configuración de base de datos");
             DatabaseProperties properties = new DatabaseProperties.Builder()
                 .url("src/main/resources/pedidos.db")
                 .maxPoolSize(5)
                 .build();
             
             DatabaseConfig databaseConfig = DatabaseConfigFactory.createConfig(DatabaseType.SQLITE, properties);
+            logger.info("Conexión a base de datos establecida");
 
+            // Creación de DAOs
+            logger.debug("Inicializando factories y DAOs");
             DAOFactory daoFactory = DAOFactory.getDAOFactory(DatabaseType.SQLITE, databaseConfig);
-
             ClienteDAO clienteDAO = daoFactory.createClienteDAO();
             PedidoDAO pedidoDAO = daoFactory.createPedidoDAO();
             ZonaEnvioDAO zonaEnvioDAO = daoFactory.createZonaEnvioDAO();
@@ -43,16 +55,21 @@ public class Main {
             // Seleccionar interfaz
             UI ui;
             if ("grafica".equalsIgnoreCase(interfaz)) {
+                logger.info("Iniciando interfaz gráfica");
                 ui = new GraphicalUI(clienteDAO, pedidoDAO, zonaEnvioDAO);
             } else {
+                logger.info("Iniciando interfaz de consola");
                 ui = new ConsoleUI(clienteDAO, pedidoDAO, zonaEnvioDAO);
             }
 
             ui.iniciar();
+            logger.info("Aplicación iniciada correctamente");
 
         } catch (ParseException e) {
+            logger.error("Error al parsear argumentos de línea de comandos: {}", e.getMessage());
             System.err.println("Error al parsear argumentos: " + e.getMessage());
         } catch (Exception e) {
+            logger.error("Error fatal en la aplicación", e);
             System.err.println("Error fatal: " + e.getMessage());
             e.printStackTrace();
         }

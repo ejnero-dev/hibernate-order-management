@@ -17,7 +17,8 @@ public class Pedido {
     }
 
     // Constructor vacío
-    public Pedido() {}
+    public Pedido() {
+    }
 
     // Getters y setters
     public int getIdPedido() {
@@ -32,23 +33,38 @@ public class Pedido {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
     public double getImporteTotal() {
         return importeTotal;
-    }
-
-    public void setImporteTotal(double importeTotal) {
-        this.importeTotal = importeTotal;
     }
 
     public int getIdCliente() {
         return idCliente;
     }
 
+    public void setFecha(LocalDate fecha) {
+        if (fecha == null) {
+            throw new IllegalArgumentException("La fecha no puede ser nula");
+        }
+        if (fecha.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("La fecha no puede ser futura");
+        }
+        this.fecha = fecha;
+    }
+
+    public void setImporteTotal(double importeTotal) {
+        if (importeTotal < 0) {
+            throw new IllegalArgumentException("El importe no puede ser negativo");
+        }
+        if (importeTotal > 999999.99) {
+            throw new IllegalArgumentException("El importe excede el máximo permitido");
+        }
+        this.importeTotal = importeTotal;
+    }
+
     public void setIdCliente(int idCliente) {
+        if (idCliente <= 0) {
+            throw new IllegalArgumentException("El ID de cliente debe ser positivo");
+        }
         this.idCliente = idCliente;
     }
 

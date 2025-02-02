@@ -17,7 +17,8 @@ public class Cliente {
     }
 
     // Constructor vacío
-    public Cliente() {}
+    public Cliente() {
+    }
 
     // Getters y setters
     public int getIdCliente() {
@@ -32,42 +33,60 @@ public class Cliente {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
     public int getIdZona() {
         return idZona;
     }
 
-    public void setIdZona(int idZona) {
-        this.idZona = idZona;
-    }
-
     @Override
     public String toString() {
-        return "Cliente{" +
-                "idCliente=" + idCliente +
-                ", nombre='" + nombre + '\'' +
-                ", email='" + email + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", idZona=" + idZona +
-                '}';
+        return nombre + " (" + email + ")";
+    }
+
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío");
+        }
+        if (nombre.length() > 100) {
+            throw new IllegalArgumentException("El nombre no puede exceder 100 caracteres");
+        }
+        this.nombre = nombre.trim();
+    }
+
+    public void setEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            throw new IllegalArgumentException("El email no puede estar vacío");
+        }
+        if (!email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            throw new IllegalArgumentException("Formato de email inválido");
+        }
+        if (email.length() > 100) {
+            throw new IllegalArgumentException("El email no puede exceder 100 caracteres");
+        }
+        this.email = email.trim();
+    }
+
+    public void setTelefono(String telefono) {
+        if (telefono != null) {
+            telefono = telefono.trim();
+            if (!telefono.matches("^[0-9]{9}$")) {
+                throw new IllegalArgumentException("El teléfono debe tener 9 dígitos");
+            }
+        }
+        this.telefono = telefono;
+    }
+
+    public void setIdZona(int idZona) {
+        if (idZona <= 0) {
+            throw new IllegalArgumentException("El ID de zona debe ser positivo");
+        }
+        this.idZona = idZona;
     }
 }

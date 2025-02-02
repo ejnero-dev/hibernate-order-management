@@ -1,5 +1,8 @@
 package acceso.datos.factory;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import acceso.datos.config.DatabaseConfig;
 import acceso.datos.config.DatabaseType;
 import acceso.datos.dao.interfaces.ClienteDAO;
@@ -23,6 +26,13 @@ public abstract class DAOFactory {
 
     // Métodos abstractos para crear los DAOs
     public abstract ClienteDAO createClienteDAO();
+
     public abstract PedidoDAO createPedidoDAO();
+
     public abstract ZonaEnvioDAO createZonaEnvioDAO();
+
+    // Método para obtener la conexión
+    public Connection getConnection() throws SQLException {
+        return databaseConfig.getConnection();
+    }
 }
