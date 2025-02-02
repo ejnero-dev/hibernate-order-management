@@ -10,13 +10,27 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que implementa la interfaz ZonaEnvioDAO para interactuar con una base de datos SQLite.
+ */
 public class SQLiteZonaEnvioDAO implements ZonaEnvioDAO {
     private final DatabaseConfig databaseConfig;
 
+    /**
+     * Constructor que recibe una instancia de DatabaseConfig.
+     *
+     * @param databaseConfig Configuración de la base de datos
+     */
     public SQLiteZonaEnvioDAO(DatabaseConfig databaseConfig) {
         this.databaseConfig = databaseConfig;
     }
 
+    /**
+     * Inserta una nueva zona en la base de datos.
+     *
+     * @param zonaEnvio La zona a insertar
+     * @throws SQLException Si ocurre un error durante la inserción
+     */
     @Override
     public void insert(ZonaEnvio zonaEnvio) throws SQLException {
         try (Connection conn = databaseConfig.getConnection();
@@ -41,6 +55,13 @@ public class SQLiteZonaEnvioDAO implements ZonaEnvioDAO {
         }
     }
 
+    /**
+     * Obtiene una zona por su identificador.
+     *
+     * @param id El identificador de la zona
+     * @return La zona correspondiente o null si no se encuentra
+     * @throws SQLException Si ocurre un error durante la consulta
+     */
     @Override
     public ZonaEnvio getById(int id) throws SQLException {
         try (Connection conn = databaseConfig.getConnection();
@@ -57,6 +78,12 @@ public class SQLiteZonaEnvioDAO implements ZonaEnvioDAO {
         return null;
     }
 
+    /**
+     * Obtiene todas las zonas en la base de datos.
+     *
+     * @return La lista de zonas
+     * @throws SQLException Si ocurre un error durante la consulta
+     */
     @Override
     public List<ZonaEnvio> getAll() throws SQLException {
         List<ZonaEnvio> zonas = new ArrayList<>();
@@ -73,6 +100,12 @@ public class SQLiteZonaEnvioDAO implements ZonaEnvioDAO {
         return zonas;
     }
 
+    /**
+     * Actualiza una zona en la base de datos.
+     *
+     * @param zonaEnvio La zona a actualizar
+     * @throws SQLException Si ocurre un error durante la actualización
+     */
     @Override
     public void update(ZonaEnvio zonaEnvio) throws SQLException {
         try (Connection conn = databaseConfig.getConnection();
@@ -89,6 +122,12 @@ public class SQLiteZonaEnvioDAO implements ZonaEnvioDAO {
         }
     }
 
+    /**
+     * Elimina una zona por su identificador.
+     *
+     * @param id El identificador de la zona a eliminar
+     * @throws SQLException Si ocurre un error durante el borrado
+     */
     @Override
     public void delete(int id) throws SQLException {
         try (Connection conn = databaseConfig.getConnection();
@@ -103,7 +142,13 @@ public class SQLiteZonaEnvioDAO implements ZonaEnvioDAO {
         }
     }
 
-    // Método auxiliar para extraer una zona de un ResultSet
+    /**
+     * Extrae una zona desde un ResultSet.
+     *
+     * @param rs El ResultSet del que extraer la zona
+     * @return La zona extraída
+     * @throws SQLException Si ocurre un error durante la extracción
+     */
     private ZonaEnvio extractZonaFromResultSet(ResultSet rs) throws SQLException {
         ZonaEnvio zona = new ZonaEnvio();
         zona.setIdZona(rs.getInt("id_zona"));

@@ -1,5 +1,8 @@
 package acceso.datos.util;
 
+/**
+ * Clase utils para manejar las consultas SQL.
+ */
 public class QueryUtils {
     // Consultas para ZonaEnvio
     public static final String INSERT_ZONA = 

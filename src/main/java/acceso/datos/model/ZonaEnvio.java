@@ -1,38 +1,75 @@
+/**
+ * Clase que representa una zona de envío en un sistema de acceso a datos.
+ */
 package acceso.datos.model;
 
 public class ZonaEnvio {
+    /**
+     * Identificador único de la zona de envío.
+     */
     private int idZona;
+    
+    /**
+     * Nombre descriptivo de la zona de envío.
+     */
     private String nombreZona;
+    
+    /**
+     * Tarifa asociada al envío a esta zona.
+     */
     private double tarifaEnvio;
 
-    // Constructor
+    /**
+     * Constructor que inicializa una nueva instancia de ZonaEnvio con los valores proporcionados.
+     *
+     * @param idZona        El identificador único de la zona de envío.
+     * @param nombreZona    El nombre descriptivo de la zona de envío.
+     * @param tarifaEnvio   La tarifa asociada al envío a esta zona.
+     */
     public ZonaEnvio(int idZona, String nombreZona, double tarifaEnvio) {
         this.idZona = idZona;
         this.nombreZona = nombreZona;
         this.tarifaEnvio = tarifaEnvio;
     }
 
-    // Constructor vacío
+    /**
+     * Constructor vacío que crea una instancia de ZonaEnvio sin inicializar valores.
+     */
     public ZonaEnvio() {
     }
 
-    // Getters y setters
+    /**
+     * Obtiene el identificador único de la zona de envío.
+     *
+     * @return El identificador único de la zona de envío.
+     */
     public int getIdZona() {
         return idZona;
     }
 
+    /**
+     * Establece el identificador único de la zona de envío.
+     *
+     * @param idZona El nuevo identificador único de la zona de envío.
+     */
     public void setIdZona(int idZona) {
         this.idZona = idZona;
     }
 
+    /**
+     * Obtiene el nombre descriptivo de la zona de envío.
+     *
+     * @return El nombre descriptivo de la zona de envío.
+     */
     public String getNombreZona() {
         return nombreZona;
     }
 
-    public double getTarifaEnvio() {
-        return tarifaEnvio;
-    }
-
+    /**
+     * Establece el nombre descriptivo de la zona de envío, realizando validaciones.
+     *
+     * @param nombreZona El nuevo nombre descriptivo de la zona de envío.
+     */
     public void setNombreZona(String nombreZona) {
         if (nombreZona == null || nombreZona.trim().isEmpty()) {
             throw new IllegalArgumentException("El nombre de zona no puede estar vacío");
@@ -43,6 +80,20 @@ public class ZonaEnvio {
         this.nombreZona = nombreZona.trim();
     }
 
+    /**
+     * Obtiene la tarifa asociada al envío a esta zona.
+     *
+     * @return La tarifa asociada al envío a esta zona.
+     */
+    public double getTarifaEnvio() {
+        return tarifaEnvio;
+    }
+
+    /**
+     * Establece la tarifa asociada al envío a esta zona, realizando validaciones.
+     *
+     * @param tarifaEnvio La nueva tarifa asociada al envío a esta zona.
+     */
     public void setTarifaEnvio(double tarifaEnvio) {
         if (tarifaEnvio < 0) {
             throw new IllegalArgumentException("La tarifa no puede ser negativa");
@@ -53,6 +104,11 @@ public class ZonaEnvio {
         this.tarifaEnvio = tarifaEnvio;
     }
 
+    /**
+     * Devuelve una representación en forma de cadena del objeto ZonaEnvio.
+     *
+     * @return Una cadena que describe la zona de envío.
+     */
     @Override
     public String toString() {
         return String.format("%s (Tarifa: %.2f€)", nombreZona, tarifaEnvio);

@@ -16,9 +16,17 @@ import org.apache.commons.cli.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Clase principal de la aplicación de gestión de pedidos.
+ */
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
+    /**
+     * Método principal que inicia la ejecución de la aplicación.
+     *
+     * @param args Argumentos de línea de comandos proporcionados por el usuario
+     */
     public static void main(String[] args) {
         logger.info("Iniciando aplicación de gestión de pedidos");
         

@@ -51,3 +51,28 @@
 20:53:52.562 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
 20:53:52.578 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
 20:54:38.016 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+23:25:20.125 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+23:25:20.608 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+23:25:20.690 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+23:25:21.086 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@461ad730
+23:25:21.093 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+23:25:21.094 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+23:25:21.146 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+23:25:21.148 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+23:25:21.149 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+23:25:21.151 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+23:25:21.152 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+23:25:21.212 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+23:37:40.212 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+23:37:40.245 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+23:37:40.324 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+23:37:40.675 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@461ad730
+23:37:40.681 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+23:37:40.682 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+23:37:40.719 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+23:37:40.722 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+23:37:40.724 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+23:37:40.726 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+23:37:40.727 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+23:37:40.787 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+23:38:17.152 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente

@@ -14,15 +14,29 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Clase que implementa el DAO para interactuar con la tabla de clientes en una base de datos SQLite.
+ */
 public class SQLiteClienteDAO implements ClienteDAO {
     private static final Logger logger = LoggerFactory.getLogger(SQLiteClienteDAO.class);
     private final DatabaseConfig databaseConfig;
 
+    /**
+     * Constructor de la clase.
+     *
+     * @param databaseConfig Configuración de la base de datos
+     */
     public SQLiteClienteDAO(DatabaseConfig databaseConfig) {
         this.databaseConfig = databaseConfig;
         logger.debug("SQLiteClienteDAO inicializado");
     }
 
+    /**
+     * Inserta un nuevo cliente en la base de datos.
+     *
+     * @param cliente Cliente a insertar
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public void insert(Cliente cliente) throws SQLException {
         logger.debug("Intentando insertar cliente: {}", cliente.getNombre());
@@ -56,6 +70,13 @@ public class SQLiteClienteDAO implements ClienteDAO {
         }
     }
 
+    /**
+     * Busca un cliente por su ID.
+     *
+     * @param id ID del cliente
+     * @return Cliente encontrado o null si no se encuentra
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public Cliente getById(int id) throws SQLException {
         logger.debug("Buscando cliente con ID: {}", id);
@@ -79,6 +100,12 @@ public class SQLiteClienteDAO implements ClienteDAO {
         }
     }
 
+    /**
+     * Obtiene todos los clientes almacenados en la base de datos.
+     *
+     * @return Lista de clientes
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public List<Cliente> getAll() throws SQLException {
         List<Cliente> clientes = new ArrayList<>();
@@ -95,6 +122,12 @@ public class SQLiteClienteDAO implements ClienteDAO {
         return clientes;
     }
 
+    /**
+     * Actualiza la información de un cliente en la base de datos.
+     *
+     * @param cliente Cliente con los nuevos datos
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public void update(Cliente cliente) throws SQLException {
         try (Connection conn = databaseConfig.getConnection();
@@ -113,6 +146,12 @@ public class SQLiteClienteDAO implements ClienteDAO {
         }
     }
 
+    /**
+     * Elimina un cliente de la base de datos por su ID.
+     *
+     * @param id ID del cliente a eliminar
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public void delete(int id) throws SQLException {
         try (Connection conn = databaseConfig.getConnection()) {
@@ -128,6 +167,13 @@ public class SQLiteClienteDAO implements ClienteDAO {
         }
     }
 
+    /**
+     * Obtiene una lista de clientes que pertenecen a una zona específica.
+     *
+     * @param idZona ID de la zona
+     * @return Lista de clientes
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public List<Cliente> getClientesByZona(int idZona) throws SQLException {
         List<Cliente> clientes = new ArrayList<>();
@@ -147,6 +193,13 @@ public class SQLiteClienteDAO implements ClienteDAO {
         return clientes;
     }
 
+    /**
+     * Obtiene el total gastado por un cliente.
+     *
+     * @param idCliente ID del cliente
+     * @return Total gastado por el cliente
+     * @throws SQLException Si ocurre algún error al ejecutar el SQL
+     */
     @Override
     public double getTotalGastadoPorCliente(int idCliente) throws SQLException {
         try (Connection conn = databaseConfig.getConnection();
@@ -163,7 +216,13 @@ public class SQLiteClienteDAO implements ClienteDAO {
         return 0.0;
     }
 
-    // Método auxiliar para extraer un cliente de un ResultSet
+    /**
+     * Método auxiliar para extraer un cliente de un ResultSet.
+     *
+     * @param rs Resultado del query
+     * @return Cliente extraído
+     * @throws SQLException Si ocurre algún error al acceder a los campos del ResultSet
+     */
     private Cliente extractClienteFromResultSet(ResultSet rs) throws SQLException {
         Cliente cliente = new Cliente();
         cliente.setIdCliente(rs.getInt("id_cliente"));

@@ -12,13 +12,24 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Clase que implementa la interfaz ConsoleUI para proporcionar una interfaz de usuario por consola.
+ */
 public class ConsoleUI implements UI {
+
     private final Scanner scanner;
     private final ClienteDAO clienteDAO;
     private final PedidoDAO pedidoDAO;
     private final ZonaEnvioDAO zonaEnvioDAO;
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+    /**
+     * Constructor de la clase ConsoleUI.
+     *
+     * @param clienteDAO DAO para operaciones con clientes
+     * @param pedidoDAO  DAO para operaciones con pedidos
+     * @param zonaEnvioDAO DAO para operaciones con zonas de envío
+     */
     public ConsoleUI(ClienteDAO clienteDAO, PedidoDAO pedidoDAO, ZonaEnvioDAO zonaEnvioDAO) {
         this.scanner = new Scanner(System.in);
         this.clienteDAO = clienteDAO;
@@ -26,6 +37,9 @@ public class ConsoleUI implements UI {
         this.zonaEnvioDAO = zonaEnvioDAO;
     }
 
+    /**
+     * Método que inicia la interfaz de usuario y muestra un menú principal.
+     */
     @Override
     public void iniciar() {
         boolean salir = false;
@@ -46,16 +60,31 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que muestra un mensaje en la consola.
+     *
+     * @param mensaje El mensaje a mostrar
+     */
     @Override
     public void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
     }
 
+    /**
+     * Método que muestra un error en la consola.
+     *
+     * @param mensaje El error a mostrar
+     */
     @Override
     public void mostrarError(String mensaje) {
         System.err.println("ERROR: " + mensaje);
     }
 
+    /**
+     * Método que muestra el menú principal y solicita una opción al usuario.
+     *
+     * @return La opción seleccionada por el usuario
+     */
     @Override
     public int mostrarMenu() {
         System.out.println("\n=== GESTIÓN DE PEDIDOS ===");
@@ -68,6 +97,9 @@ public class ConsoleUI implements UI {
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     * Método que gestiona las operaciones relacionadas con clientes.
+     */
     @Override
     public void gestionarClientes() {
         boolean volver = false;
@@ -96,6 +128,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que permite crear un nuevo cliente.
+     */
     private void nuevoCliente() throws Exception {
         System.out.println("\nNUEVO CLIENTE");
         System.out.print("Nombre: ");
@@ -124,6 +159,9 @@ public class ConsoleUI implements UI {
         mostrarMensaje("Cliente creado correctamente");
     }
 
+    /**
+     * Método que permite modificar un cliente existente.
+     */
     private void modificarCliente() throws Exception {
         listarClientes();
         System.out.print("\nID del cliente a modificar: ");
@@ -167,6 +205,9 @@ public class ConsoleUI implements UI {
         mostrarMensaje("Cliente actualizado correctamente");
     }
 
+    /**
+     * Método que permite eliminar un cliente.
+     */
     private void eliminarCliente() throws Exception {
         listarClientes();
         System.out.print("\nID del cliente a eliminar: ");
@@ -179,6 +220,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que lista todos los clientes.
+     */
     private void listarClientes() throws Exception {
         List<Cliente> clientes = clienteDAO.getAll();
         System.out.println("\nLISTA DE CLIENTES");
@@ -193,6 +237,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que gestiona las operaciones relacionadas con pedidos.
+     */
     @Override
     public void gestionarPedidos() {
         boolean volver = false;
@@ -221,6 +268,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que permite crear un nuevo pedido.
+     */
     private void nuevoPedido() throws Exception {
         listarClientes();
         System.out.print("\nID del cliente: ");
@@ -241,6 +291,9 @@ public class ConsoleUI implements UI {
         mostrarMensaje("Pedido creado correctamente");
     }
 
+    /**
+     * Método que permite modificar un pedido existente.
+     */
     private void modificarPedido() throws Exception {
         listarPedidos();
         System.out.print("\nID del pedido a modificar: ");
@@ -268,6 +321,9 @@ public class ConsoleUI implements UI {
         mostrarMensaje("Pedido actualizado correctamente");
     }
 
+    /**
+     * Método que permite eliminar un pedido.
+     */
     private void eliminarPedido() throws Exception {
         listarPedidos();
         System.out.print("\nID del pedido a eliminar: ");
@@ -280,6 +336,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que lista todos los pedidos.
+     */
     private void listarPedidos() throws Exception {
         List<Pedido> pedidos = pedidoDAO.getAll();
         System.out.println("\nLISTA DE PEDIDOS");
@@ -293,6 +352,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que consulta todas las zonas de envío.
+     */
     @Override
     public void consultarZonasEnvio() throws Exception {
         List<ZonaEnvio> zonas = zonaEnvioDAO.getAll();
@@ -306,6 +368,9 @@ public class ConsoleUI implements UI {
         }
     }
 
+    /**
+     * Método que consulta los pedidos de un cliente específico.
+     */
     @Override
     public void consultarPedidosCliente() throws Exception {
         listarClientes();

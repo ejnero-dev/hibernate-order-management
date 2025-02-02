@@ -21,6 +21,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Implementación de la interfaz UI para la interacción con el usuario a través de una interfaz gráfica Swing.
+ * Esta clase gestiona la presentación del menú principal, la gestión de clientes y pedidos, y la consulta de zonas de envío.
+ */
 public class GraphicalUI implements UI {
     private SwingMenuBuilder gui;
     private final ClienteDAO clienteDAO;
@@ -31,6 +35,12 @@ public class GraphicalUI implements UI {
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
+    /**
+     * Constructor de la clase GraphicalUI.
+     * @param clienteDAO Implementación de la interfaz ClienteDAO para acceder a los datos de clientes.
+     * @param pedidoDAO Implementación de la interfaz PedidoDAO para acceder a los datos de pedidos.
+     * @param zonaEnvioDAO Implementación de la interfaz ZonaEnvioDAO para acceder a los datos de zonas de envío.
+     */
     public GraphicalUI(ClienteDAO clienteDAO, PedidoDAO pedidoDAO, ZonaEnvioDAO zonaEnvioDAO) {
         this.clienteDAO = clienteDAO;
         this.pedidoDAO = pedidoDAO;
@@ -39,6 +49,10 @@ public class GraphicalUI implements UI {
         configureGUI();
     }
 
+    /**
+     * Configura el menú principal de la interfaz gráfica.
+     * Añade opciones para gestionar clientes, gestionar pedidos, consultar zonas de envío y salir del programa.
+     */
     private void configureGUI() {
         gui.addMenuOption("Gestionar Clientes", () -> {
             gui.setStatus(SwingMenuBuilder.STATUS_PROCESSING);
@@ -82,6 +96,10 @@ public class GraphicalUI implements UI {
         });
     }
 
+    /**
+     * Inicia la interfaz gráfica y el ciclo principal del programa.
+     * El programa continuará ejecutándose hasta que el usuario elija la opción de salir.
+     */
     @Override
     public void iniciar() {
         SwingUtilities.invokeLater(() -> {
@@ -107,6 +125,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Muestra el menú principal y espera a que el usuario seleccione una opción.
+     * @return La opción seleccionada por el usuario.
+     */
     @Override
     public int mostrarMenu() {
         synchronized (lock) {
@@ -120,6 +142,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Muestra un mensaje informativo al usuario.
+     * @param mensaje El mensaje a mostrar.
+     */
     @Override
     public void mostrarMensaje(String mensaje) {
         SwingUtilities.invokeLater(() -> {
@@ -128,6 +154,10 @@ public class GraphicalUI implements UI {
         });
     }
 
+    /**
+     * Muestra un mensaje de error al usuario.
+     * @param mensaje El mensaje de error a mostrar.
+     */
     @Override
     public void mostrarError(String mensaje) {
         SwingUtilities.invokeLater(() -> {
@@ -136,6 +166,10 @@ public class GraphicalUI implements UI {
         });
     }
 
+    /**
+     * Muestra el panel de gestión de clientes.
+     * Permite al usuario realizar acciones como crear, modificar, eliminar y listar clientes.
+     */
     @Override
     public void gestionarClientes() {
         JPanel panel = new JPanel(new GridLayout(5, 1, 5, 5));
@@ -183,6 +217,10 @@ public class GraphicalUI implements UI {
         dialog.setVisible(true);
     }
 
+    /**
+     * Permite crear un nuevo cliente.
+     * Solicita al usuario los datos necesarios y los inserta en la base de datos.
+     */
     private void nuevoCliente() {
         JPanel panel = new JPanel(new GridLayout(5, 2, 5, 5));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -253,6 +291,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+     /**
+     * Permite modificar un cliente existente.
+     * Muestra una lista de clientes para seleccionar y luego permite editar sus datos.
+     */
     private void modificarCliente() {
         // Primero seleccionar el cliente a modificar
         JComboBox<Cliente> clienteCombo = new JComboBox<>();
@@ -322,6 +364,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Permite eliminar un cliente existente.
+     * Muestra una lista de clientes para seleccionar y luego pide confirmación antes de eliminarlo.
+     */
     private void eliminarCliente() {
         JComboBox<Cliente> clienteCombo = new JComboBox<>();
         try {
@@ -356,6 +402,9 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Muestra una lista de todos los clientes en un formato legible.
+     */
     private void listarClientes() {
         try {
             List<Cliente> clientes = clienteDAO.getAll();
@@ -378,6 +427,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Muestra el panel de gestión de pedidos.
+     * Permite al usuario realizar acciones como crear, modificar, eliminar y listar pedidos.
+     */
     @Override
     public void gestionarPedidos() {
         JPanel panel = new JPanel(new GridLayout(5, 1, 5, 5));
@@ -425,6 +478,10 @@ public class GraphicalUI implements UI {
         dialog.setVisible(true);
     }
 
+    /**
+     * Permite crear un nuevo pedido.
+     * Solicita al usuario los datos necesarios y los inserta en la base de datos.
+     */
     private void nuevoPedido() {
         JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -470,6 +527,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Permite modificar un pedido existente.
+     * Muestra una lista de pedidos para seleccionar y luego permite editar sus datos.
+     */
     private void modificarPedido() {
         JComboBox<Pedido> pedidoCombo = new JComboBox<>();
         try {
@@ -518,6 +579,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Permite eliminar un pedido existente.
+     * Muestra una lista de pedidos para seleccionar y luego pide confirmación antes de eliminarlo.
+     */
     private void eliminarPedido() {
         JComboBox<Pedido> pedidoCombo = new JComboBox<>();
         try {
@@ -552,6 +617,9 @@ public class GraphicalUI implements UI {
         }
     }
 
+     /**
+     * Muestra una lista de todos los pedidos en un formato legible.
+     */
     private void listarPedidos() {
         try {
             List<Pedido> pedidos = pedidoDAO.getAll();
@@ -573,8 +641,10 @@ public class GraphicalUI implements UI {
         }
     }
 
-    // En GraphicalUI.java
-
+    /**
+     * Muestra información sobre las zonas de envío, incluyendo los clientes asociados a cada zona.
+     * @throws SQLException Si hay un error al acceder a la base de datos.
+     */
     @Override
     public void consultarZonasEnvio() throws SQLException {
         try {
@@ -606,6 +676,10 @@ public class GraphicalUI implements UI {
         }
     }
 
+    /**
+     * Permite al usuario seleccionar un cliente y luego muestra información detallada sobre sus pedidos.
+     * @throws SQLException Si hay un error al acceder a la base de datos.
+     */
     @Override
     public void consultarPedidosCliente() throws SQLException {
         // Primero seleccionar el cliente
@@ -678,15 +752,4 @@ public class GraphicalUI implements UI {
             }
         }
     }
-
-    // Método auxiliar para formatear moneda los dejo por si los necesito más
-    // adelante
-    // private String formatMoney(double amount) {
-    // return String.format("%.2f€", amount);
-    // }
-
-    // // Método auxiliar para formatear fecha
-    // private String formatDate(LocalDate date) {
-    // return date.format(dateFormatter);
-    // }
 }
