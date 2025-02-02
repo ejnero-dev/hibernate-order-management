@@ -1,0 +1,60 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'C:/Users/Emilio/.m2/repository/org/xerial/sqlite-jdbc/3.48.0.0/sqlite-jdbc-3.48.0.0.jar;C:/Users/Emilio/.m2/repository/com/zaxxer/HikariCP/6.2.1/HikariCP-6.2.1.jar;C:/Users/Emilio/.m2/repository/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0.jar;C:/Users/Emilio/.m2/repository/org/slf4j/slf4j-simple/1.7.32/slf4j-simple-1.7.32.jar;C:/Users/Emilio/.m2/repository/org/slf4j/slf4j-api/2.1.0-alpha1/slf4j-api-2.1.0-alpha1.jar;C:/Users/Emilio/.m2/repository/ch/qos/logback/logback-classic/1.5.16/logback-classic-1.5.16.jar;C:/Users/Emilio/.m2/repository/ch/qos/logback/logback-core/1.5.16/logback-core-1.5.16.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'G:/Otros ordenadores/Mi PC (1)/Documents/Acceso a datos/tarea4_1/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'G:/Otros ordenadores/Mi PC (1)/Documents/Acceso a datos/tarea4_1/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'tarea4_1 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'tarea4_1 1.0-SNAPSHOT API'
+acceso.datos
+acceso.datos.util
+acceso.datos.ui
+acceso.datos.model
+acceso.datos.factory
+acceso.datos.config
+acceso.datos.dao.interfaces
+acceso.datos.dao.impl.sqlite
+C:\Users\Emilio\.m2\repository\org\xerial\sqlite-jdbc\3.48.0.0\sqlite-jdbc-3.48.0.0.jar = 1738531127389
+C:\Users\Emilio\.m2\repository\com\zaxxer\HikariCP\6.2.1\HikariCP-6.2.1.jar = 1738531127495
+C:\Users\Emilio\.m2\repository\commons-cli\commons-cli\1.5.0\commons-cli-1.5.0.jar = 1729021001561
+C:\Users\Emilio\.m2\repository\org\slf4j\slf4j-simple\1.7.32\slf4j-simple-1.7.32.jar = 1738531127745
+C:\Users\Emilio\.m2\repository\org\slf4j\slf4j-api\2.1.0-alpha1\slf4j-api-2.1.0-alpha1.jar = 1738531127520
+C:\Users\Emilio\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar = 1738531127538
+C:\Users\Emilio\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar = 1738531127573
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\src\main\java = 1737534198025
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\element-list = 1738536122566
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\constant-values.html = 1738536123962
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\serialized-form.html = 1738536124049
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\overview-tree.html = 1738536126874
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\index.html = 1738536126950
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\allclasses-index.html = 1738536127046
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\allpackages-index.html = 1738536127130
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\module-search-index.js = 1738536127201
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\package-search-index.js = 1738536127248
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\type-search-index.js = 1738536127295
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\member-search-index.js = 1738536127342
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\tag-search-index.js = 1738536127390
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\index-all.html = 1738536127484
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\search.html = 1738536127570
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\overview-summary.html = 1738536127647
+G:\Otros ordenadores\Mi PC (1)\Documents\Acceso a datos\tarea4_1\target\reports\apidocs\help-doc.html = 1738536127726
