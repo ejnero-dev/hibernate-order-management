@@ -7,7 +7,7 @@
             "request": "launch",
             "mainClass": "acceso.datos.Main",
             "args": ["-i", "consola", "-db", "sqlite"],
-            "projectName": "tarea5_1b"
+            "projectName": "tarea4_1"
         },
         {
             "type": "java",
@@ -15,7 +15,7 @@
             "request": "launch",
             "mainClass": "acceso.datos.Main", 
             "args": ["-i", "grafica", "-db", "sqlite"],
-            "projectName": "tarea5_1b"
+            "projectName": "tarea4_1"
         },
         {
             "type": "java",
@@ -23,7 +23,7 @@
             "request": "launch",
             "mainClass": "acceso.datos.Main",
             "args": ["-i", "consola", "-db", "hibernate"],
-            "projectName": "tarea5_1b"
+            "projectName": "tarea4_1"
         },
         {
             "type": "java",
@@ -31,7 +31,23 @@
             "request": "launch",
             "mainClass": "acceso.datos.Main", 
             "args": ["-i", "grafica", "-db", "hibernate"],
-            "projectName": "tarea5_1b"
+            "projectName": "tarea4_1"
+        },
+        {
+            "type": "java",
+            "name": "Direct - Interfaz de Consola (Hibernate)",
+            "request": "launch",
+            "mainClass": "acceso.datos.DirectMain",
+            "args": ["-i", "consola"],
+            "projectName": "tarea4_1"
+        },
+        {
+            "type": "java",
+            "name": "Direct - Interfaz Gráfica (Hibernate)",
+            "request": "launch",
+            "mainClass": "acceso.datos.DirectMain", 
+            "args": ["-i", "grafica"],
+            "projectName": "tarea4_1"
         }
     ]
 }

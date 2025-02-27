@@ -1,143 +1,126 @@
-20:42:24.531 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-20:42:24.544 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-20:42:24.568 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-20:42:24.726 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
-20:42:24.733 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-20:42:24.733 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-20:42:24.744 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-20:42:24.746 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-20:42:24.746 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-20:42:24.746 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-20:42:24.746 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-20:42:24.746 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-20:44:46.152 [AWT-EventQueue-0] INFO  a.d.dao.impl.sqlite.SQLiteClienteDAO - Cliente insertado correctamente con ID: 5
-20:45:28.393 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-20:46:24.119 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-20:46:24.132 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-20:46:24.158 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-20:46:24.323 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
-20:46:24.325 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-20:46:24.325 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-20:46:24.338 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-20:46:24.339 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-20:46:24.339 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-20:46:24.339 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-20:46:24.339 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-20:46:24.343 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-20:48:46.669 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-20:52:30.897 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-20:52:30.934 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-20:52:31.027 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-20:52:31.580 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
-20:52:31.589 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-20:52:31.589 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-20:52:31.643 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-20:52:31.648 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-20:52:31.648 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-20:52:31.648 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-20:52:31.648 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-20:52:31.667 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-20:53:42.971 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-20:53:51.821 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-20:53:51.858 [main] INFO  acceso.datos.Main - Interfaz seleccionada: consola
-20:53:51.951 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-20:53:52.494 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@38145825
-20:53:52.503 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-20:53:52.506 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-20:53:52.554 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-20:53:52.558 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-20:53:52.560 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-20:53:52.562 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-20:53:52.562 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-20:53:52.578 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
-20:54:38.016 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-23:25:20.125 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-23:25:20.608 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-23:25:20.690 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-23:25:21.086 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@461ad730
-23:25:21.093 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-23:25:21.094 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-23:25:21.146 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-23:25:21.148 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-23:25:21.149 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-23:25:21.151 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-23:25:21.152 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-23:25:21.212 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-23:37:40.212 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-23:37:40.245 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-23:37:40.324 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-23:37:40.675 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@461ad730
-23:37:40.681 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-23:37:40.682 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-23:37:40.719 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-23:37:40.722 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-23:37:40.724 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-23:37:40.726 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-23:37:40.727 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-23:37:40.787 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-23:38:17.152 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-09:47:08.033 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-09:47:08.045 [main] INFO  acceso.datos.Main - Interfaz seleccionada: consola
-09:47:08.047 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: HIBERNATE
-09:47:08.050 [main] INFO  a.datos.hibernate.HibernateUtil - Inicializando SessionFactory de Hibernate
-09:47:08.133 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-09:47:08.380 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-09:47:08.509 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-09:47:08.513 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
-09:47:08.513 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
-09:47:08.514 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
-09:47:08.514 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-09:47:08.517 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-09:47:09.521 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-09:47:09.539 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4a216eb4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-09:47:09.559 [main] INFO  a.datos.hibernate.HibernateUtil - SessionFactory inicializada correctamente
-09:47:09.559 [main] INFO  acceso.datos.config.HibernateConfig - Configuración de Hibernate inicializada
-09:47:09.559 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-09:47:09.559 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
-09:47:32.268 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-09:47:32.279 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-09:47:32.281 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: HIBERNATE
-09:47:32.285 [main] INFO  a.datos.hibernate.HibernateUtil - Inicializando SessionFactory de Hibernate
-09:47:32.364 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-09:47:32.581 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-09:47:32.698 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-09:47:32.700 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
-09:47:32.700 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
-09:47:32.700 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
-09:47:32.700 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-09:47:32.700 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-09:47:33.745 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-09:47:33.766 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4a216eb4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-09:47:33.778 [main] INFO  a.datos.hibernate.HibernateUtil - SessionFactory inicializada correctamente
-09:47:33.779 [main] INFO  acceso.datos.config.HibernateConfig - Configuración de Hibernate inicializada
-09:47:33.779 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-09:47:33.782 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-09:47:55.450 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-09:48:06.741 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-09:48:06.754 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
-09:48:06.758 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: SQLITE
-09:48:06.782 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-09:48:06.951 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7dc3712
-09:48:06.953 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-09:48:06.955 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-09:48:06.972 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-09:48:06.973 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-09:48:06.974 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-09:48:06.974 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-09:48:06.974 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-09:48:06.977 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
-09:48:08.695 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
-09:48:17.871 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
-09:48:17.882 [main] INFO  acceso.datos.Main - Interfaz seleccionada: consola
-09:48:17.883 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: SQLITE
-09:48:17.901 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-09:48:18.056 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7dc3712
-09:48:18.059 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-09:48:18.059 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
-09:48:18.072 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
-09:48:18.072 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
-09:48:18.072 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
-09:48:18.072 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
-09:48:18.074 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
-09:48:18.077 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
-09:48:20.064 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+12:13:34.266 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+12:13:34.281 [main] INFO  acceso.datos.Main - Interfaz seleccionada: consola
+12:13:34.285 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: SQLITE
+12:13:34.302 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:13:34.469 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7dc3712
+12:13:34.474 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:13:34.475 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+12:13:34.487 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+12:13:34.488 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+12:13:34.488 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+12:13:34.489 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+12:13:34.489 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+12:13:34.500 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
+12:13:43.644 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+12:14:12.286 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+12:14:12.307 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+12:14:12.309 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: SQLITE
+12:14:12.329 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:14:12.498 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7dc3712
+12:14:12.498 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:14:12.498 [main] INFO  acceso.datos.config.SQLiteConfig - Iniciando inicialización de base de datos SQLite
+12:14:12.510 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_ERROR] SQL error or missing database (table Zonas_Envio already exists)
+12:14:12.512 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Zonas_Envio.id_zona)
+12:14:12.512 [main] WARN  acceso.datos.config.SQLiteConfig - Advertencia al ejecutar statement: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Clientes.id_cliente)
+12:14:12.513 [main] INFO  acceso.datos.config.SQLiteConfig - Base de datos inicializada correctamente
+12:14:12.513 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+12:14:12.524 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+12:14:14.800 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+12:14:30.761 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+12:14:30.774 [main] INFO  acceso.datos.Main - Interfaz seleccionada: consola
+12:14:30.774 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: HIBERNATE
+12:14:30.780 [main] INFO  a.datos.hibernate.HibernateUtil - Inicializando SessionFactory de Hibernate
+12:14:30.899 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+12:14:31.182 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:14:31.317 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+12:14:31.317 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+12:14:31.317 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+12:14:31.317 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+12:14:31.317 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+12:14:31.317 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+12:14:32.418 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:14:32.450 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4a216eb4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+12:14:32.463 [main] INFO  a.datos.hibernate.HibernateUtil - SessionFactory inicializada correctamente
+12:14:32.463 [main] INFO  acceso.datos.config.HibernateConfig - Configuración de Hibernate inicializada
+12:14:32.465 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+12:14:32.470 [main] INFO  acceso.datos.Main - Iniciando interfaz de consola
+12:14:34.969 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+12:14:44.924 [main] INFO  acceso.datos.Main - Iniciando aplicación de gestión de pedidos
+12:14:44.937 [main] INFO  acceso.datos.Main - Interfaz seleccionada: grafica
+12:14:44.939 [main] INFO  acceso.datos.Main - Tipo de base de datos seleccionada: HIBERNATE
+12:14:44.943 [main] INFO  a.datos.hibernate.HibernateUtil - Inicializando SessionFactory de Hibernate
+12:14:45.022 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+12:14:45.239 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:14:45.364 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+12:14:45.366 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+12:14:45.366 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+12:14:45.366 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+12:14:45.366 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+12:14:45.370 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+12:14:46.377 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:14:46.393 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4a216eb4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+12:14:46.408 [main] INFO  a.datos.hibernate.HibernateUtil - SessionFactory inicializada correctamente
+12:14:46.409 [main] INFO  acceso.datos.config.HibernateConfig - Configuración de Hibernate inicializada
+12:14:46.409 [main] INFO  acceso.datos.Main - Conexión a base de datos establecida
+12:14:46.414 [main] INFO  acceso.datos.Main - Iniciando interfaz gráfica
+12:14:48.011 [main] INFO  acceso.datos.Main - Aplicación iniciada correctamente
+12:14:59.140 [main] INFO  acceso.datos.DirectMain - Iniciando aplicación de gestión de pedidos (implementación directa Hibernate)
+12:14:59.149 [main] INFO  acceso.datos.DirectMain - Interfaz seleccionada: consola
+12:14:59.155 [main] INFO  a.datos.hibernate.SessionManager - Inicializando SessionFactory de Hibernate
+12:14:59.233 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+12:14:59.437 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:14:59.556 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+12:14:59.560 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+12:14:59.560 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+12:14:59.560 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+12:14:59.560 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+12:14:59.563 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+12:15:00.612 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:15:00.631 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1b37fbec] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+12:15:00.656 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory inicializada correctamente
+12:15:00.656 [main] INFO  a.datos.factory.DirectDAOFactory - DirectDAOFactory inicializado correctamente
+12:15:00.656 [main] INFO  acceso.datos.DirectMain - Iniciando interfaz de consola
+12:15:11.629 [main] INFO  acceso.datos.DirectMain - Aplicación iniciada correctamente
+12:15:11.629 [main] INFO  a.datos.hibernate.SessionManager - Cerrando SessionFactory
+12:15:11.629 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:sqlite:src/main/resources/pedidos.db]
+12:15:11.652 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory cerrada correctamente
+12:15:25.615 [main] INFO  acceso.datos.DirectMain - Iniciando aplicación de gestión de pedidos (implementación directa Hibernate)
+12:15:25.625 [main] INFO  acceso.datos.DirectMain - Interfaz seleccionada: grafica
+12:15:25.630 [main] INFO  a.datos.hibernate.SessionManager - Inicializando SessionFactory de Hibernate
+12:15:25.707 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+12:15:25.928 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:15:26.040 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+12:15:26.043 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+12:15:26.043 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+12:15:26.043 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+12:15:26.043 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+12:15:26.046 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+12:15:27.110 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:15:27.131 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340cb97f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+12:15:27.147 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory inicializada correctamente
+12:15:27.147 [main] INFO  a.datos.factory.DirectDAOFactory - DirectDAOFactory inicializado correctamente
+12:15:27.150 [main] INFO  acceso.datos.DirectMain - Iniciando interfaz gráfica
+12:15:45.345 [main] INFO  acceso.datos.DirectMain - Aplicación iniciada correctamente
+12:15:45.345 [main] INFO  a.datos.hibernate.SessionManager - Cerrando SessionFactory
+12:15:45.345 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:sqlite:src/main/resources/pedidos.db]
+12:15:45.353 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory cerrada correctamente
+12:17:01.057 [main] INFO  acceso.datos.DirectMain - Iniciando aplicación de gestión de pedidos (implementación directa Hibernate)
+12:17:01.070 [main] INFO  acceso.datos.DirectMain - Interfaz seleccionada: consola
+12:17:01.074 [main] INFO  a.datos.hibernate.SessionManager - Inicializando SessionFactory de Hibernate
+12:17:01.155 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+12:17:01.372 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:17:01.489 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+12:17:01.493 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+12:17:01.493 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+12:17:01.493 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+12:17:01.494 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+12:17:01.496 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+12:17:02.500 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:17:02.518 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@340cb97f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+12:17:02.532 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory inicializada correctamente
+12:17:02.534 [main] INFO  a.datos.factory.DirectDAOFactory - DirectDAOFactory inicializado correctamente
+12:17:02.534 [main] INFO  acceso.datos.DirectMain - Iniciando interfaz de consola
+12:17:04.747 [main] INFO  acceso.datos.DirectMain - Aplicación iniciada correctamente
+12:17:04.748 [main] INFO  a.datos.hibernate.SessionManager - Cerrando SessionFactory
+12:17:04.749 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:sqlite:src/main/resources/pedidos.db]
+12:17:04.751 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory cerrada correctamente
