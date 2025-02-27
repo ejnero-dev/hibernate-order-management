@@ -1,6 +1,9 @@
-# Sistema de Gestión de Pedidos con Hibernate ORM (Tarea 5.1 - Opción B)
+# Sistema de Gestión de Pedidos con Hibernate ORM (Tarea 5.1)
 
-Este proyecto implementa un sistema de gestión de pedidos utilizando Hibernate ORM como capa de acceso a datos. La implementación corresponde a la **Opción B** del enunciado, que consiste en adaptar el sistema existente para usar Hibernate **sin modificar** su estructura original.
+Este proyecto implementa un sistema de gestión de pedidos utilizando Hibernate ORM como capa de acceso a datos, siguiendo las dos opciones del enunciado:
+
+- **Opción A**: Modificar el código original para usar directamente la API de Hibernate/JPA.
+- **Opción B**: Adaptar el sistema original manteniendo su estructura y creando una capa de traducción entre la API existente y Hibernate/JPA.
 
 ## Descripción
 
@@ -8,8 +11,6 @@ El sistema permite gestionar:
 - Zonas de envío con tarifas asociadas
 - Clientes pertenecientes a distintas zonas
 - Pedidos realizados por los clientes
-
-La arquitectura del sistema se ha mantenido intacta, añadiendo solo las anotaciones JPA necesarias a las clases de modelo y creando adaptadores entre la API original y Hibernate.
 
 ## Requisitos
 
@@ -25,9 +26,70 @@ La arquitectura del sistema se ha mantenido intacta, añadiendo solo las anotaci
 - **Swing**: Para la interfaz gráfica
 - **SLF4J/Logback**: Para el sistema de logs
 
-## Estructura del proyecto
+## Implementaciones
 
-La estructura del proyecto se ha mantenido, añadiendo solo las clases y archivos necesarios para la integración con Hibernate:
+### Opción A: Implementación directa con API de Hibernate
+
+Esta implementación modifica el código original para utilizar directamente Hibernate. Utiliza un enfoque más limpio y simplificado, aprovechando al máximo las características de Hibernate.
+
+#### Clases principales
+
+- `SessionManager`: Gestiona la SessionFactory de Hibernate y proporciona métodos para ejecutar operaciones dentro de transacciones.
+- `DirectClienteDAO`, `DirectPedidoDAO`, `DirectZonaEnvioDAO`: Implementaciones DAO que utilizan directamente la API de Hibernate.
+- `DirectDAOFactory`: Factoría que proporciona instancias de las implementaciones DAO.
+- `DirectMain`: Punto de entrada para esta implementación.
+
+#### Características
+
+- Uso optimizado de sesiones y transacciones de Hibernate
+- Gestión centralizada de la SessionFactory mediante el patrón Singleton
+- Ejecución de operaciones mediante expresiones lambda dentro de transacciones
+- Código más limpio y directo al eliminar capas intermedias
+
+#### Estructura del código (Opción A)
+
+```
+src/
+  main/
+    java/
+      acceso/
+        datos/
+          dao/
+            direct/
+              DirectClienteDAO.java        # DAO de clientes con API directa de Hibernate
+              DirectPedidoDAO.java         # DAO de pedidos con API directa de Hibernate
+              DirectZonaEnvioDAO.java      # DAO de zonas con API directa de Hibernate
+          factory/
+            DirectDAOFactory.java          # Factoría para los DAOs directos
+          hibernate/
+            SessionManager.java            # Gestor de sesiones de Hibernate
+          model/                          # Clases modelo con anotaciones JPA (compartidas)
+            Cliente.java
+            Pedido.java
+            ZonaEnvio.java
+          DirectMain.java                 # Punto de entrada para la implementación directa
+```
+
+### Opción B: Adaptación manteniendo la estructura original
+
+Esta implementación adapta el sistema existente para usar Hibernate sin modificar su estructura original. Se añaden solo las anotaciones JPA necesarias y se crean adaptadores que permiten que la estructura original funcione con Hibernate.
+
+#### Clases principales
+
+- `HibernateUtil`: Gestiona la SessionFactory de Hibernate.
+- `HibernateClienteDAO`, `HibernatePedidoDAO`, `HibernateZonaEnvioDAO`: Implementaciones DAO que adaptan Hibernate a la interfaz existente.
+- `HibernateDAOFactory`: Factoría para crear instancias de los DAOs de Hibernate.
+- `HibernateConfig`: Configuración de base de datos para Hibernate.
+- Clases modelo con anotaciones JPA.
+
+#### Características
+
+- Preserva la estructura original del sistema
+- Mantiene la interfaz de usuario y la experiencia del usuario final intactas
+- Usa Hibernate como una implementación alternativa a SQLite
+- Añade soporte para Hibernate mediante una capa de adaptación
+
+#### Estructura del código (Opción B)
 
 ```
 src/
@@ -37,11 +99,10 @@ src/
         datos/
           config/
             DatabaseConfig.java            # Interfaz actualizada para soportar Hibernate
-            DatabaseConfigFactory.java     # Factoría actualizada para crear config. de Hibernate
+            DatabaseConfigFactory.java     # Factoría actualizada
             DatabaseType.java              # Enum actualizado con tipo HIBERNATE
             HibernateConfig.java           # Nueva implementación para Hibernate
-            SQLiteConfig.java              # Configuración original de SQLite
-            ...
+            SQLiteConfig.java              # Configuración original
           dao/
             impl/
               hibernate/                   # Nuevas implementaciones para Hibernate
@@ -57,25 +118,15 @@ src/
             HibernateDAOFactory.java       # Nueva factoría para Hibernate
             SQLiteDAOFactory.java          # Factoría original
           hibernate/
-            HibernateUtil.java             # Clase utilidad para gestionar SessionFactory
-          model/                          # Clases modelo con anotaciones JPA
-            Cliente.java
-            Pedido.java
-            ZonaEnvio.java
-          ui/                             # Interfaces de usuario (sin modificaciones)
-            ...
+            HibernateUtil.java             # Clase utilidad para SessionFactory
           Main.java                       # Clase principal actualizada
-    resources/
-      hibernate.cfg.xml                    # Configuración de Hibernate
-      pedidos.sql                          # Script SQL original
-      logback.xml                          # Configuración de logs
 ```
 
 ## Detalles de implementación
 
-### 1. Anotaciones JPA en clases modelo
+### Anotaciones JPA en clases modelo (compartido por ambas opciones)
 
-Se han añadido anotaciones JPA a las clases `Cliente`, `Pedido` y `ZonaEnvio`:
+Las clases modelo han sido anotadas con JPA para su uso con Hibernate:
 
 ```java
 @Entity
@@ -86,13 +137,13 @@ public class Cliente {
     @Column(name = "id_cliente")
     private int idCliente;
     
-    // Resto de atributos y métodos sin modificar
+    // Resto de atributos y métodos
 }
 ```
 
-### 2. Configuración de Hibernate
+### Configuración de Hibernate (compartido por ambas opciones)
 
-Se ha creado un archivo `hibernate.cfg.xml` en el directorio `resources`:
+Archivo `hibernate.cfg.xml` en el directorio `resources`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -115,63 +166,55 @@ Se ha creado un archivo `hibernate.cfg.xml` en el directorio `resources`:
 </hibernate-configuration>
 ```
 
-### 3. Clase HibernateUtil
+### Ejemplo de implementación DAO
 
-Se ha creado una clase `HibernateUtil` para gestionar la SessionFactory:
+#### Opción A (Implementación directa)
 
 ```java
-public class HibernateUtil {
-    private static SessionFactory sessionFactory;
+public class DirectClienteDAO implements ClienteDAO {
+    private final SessionManager sessionManager;
 
-    public static synchronized SessionFactory getSessionFactory() {
-        if (sessionFactory == null) {
-            try {
-                Configuration configuration = new Configuration();
-                configuration.configure("hibernate.cfg.xml");
-                sessionFactory = configuration.buildSessionFactory();
-            } catch (Exception e) {
-                throw new ExceptionInInitializerError(e);
-            }
-        }
-        return sessionFactory;
+    public DirectClienteDAO() {
+        this.sessionManager = SessionManager.getInstance();
     }
 
-    public static void shutdown() {
-        if (sessionFactory != null && !sessionFactory.isClosed()) {
-            sessionFactory.close();
-        }
-    }
-}
-```
-
-### 4. Implementación de DAOs para Hibernate
-
-Se han creado implementaciones de DAO que utilizan Hibernate para cada entidad:
-
-```java
-public class HibernateClienteDAO implements ClienteDAO {
-    // Implementación de métodos utilizando Hibernate
-}
-```
-
-### 5. Actualización de las factorías
-
-Se ha extendido `DAOFactory` y se ha creado `HibernateDAOFactory` para soportar Hibernate:
-
-```java
-public class HibernateDAOFactory extends DAOFactory {
     @Override
-    public ClienteDAO createClienteDAO() {
-        return new HibernateClienteDAO();
+    public void insert(Cliente cliente) throws SQLException {
+        try {
+            sessionManager.execute(session -> {
+                session.persist(cliente);
+            });
+        } catch (Exception e) {
+            throw new SQLException("Error al insertar cliente: " + e.getMessage(), e);
+        }
     }
     
     // Otros métodos
 }
 ```
 
-### 6. Configuración de base de datos para Hibernate
+#### Opción B (Adaptación)
 
-Se ha implementado `HibernateConfig` que adapta la API de Hibernate a la interfaz `DatabaseConfig` existente.
+```java
+public class HibernateClienteDAO implements ClienteDAO {
+    @Override
+    public void insert(Cliente cliente) throws SQLException {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.persist(cliente);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new SQLException("Error al insertar cliente: " + e.getMessage(), e);
+        }
+    }
+    
+    // Otros métodos
+}
+```
 
 ## Cómo ejecutar la aplicación
 
@@ -179,10 +222,15 @@ Se ha implementado `HibernateConfig` que adapta la API de Hibernate a la interfa
 
 Puedes usar las configuraciones de lanzamiento definidas en `.vscode/launch.json`:
 
-1. **Interfaz de Consola (SQLite)**: Ejecuta la aplicación con interfaz de consola usando SQLite
-2. **Interfaz Gráfica (SQLite)**: Ejecuta la aplicación con interfaz gráfica usando SQLite
-3. **Interfaz de Consola (Hibernate)**: Ejecuta la aplicación con interfaz de consola usando Hibernate
-4. **Interfaz Gráfica (Hibernate)**: Ejecuta la aplicación con interfaz gráfica usando Hibernate
+**Opción B (Adaptación):**
+1. **Interfaz de Consola (SQLite)**: Ejecuta la aplicación adaptada con interfaz de consola usando SQLite
+2. **Interfaz Gráfica (SQLite)**: Ejecuta la aplicación adaptada con interfaz gráfica usando SQLite
+3. **Interfaz de Consola (Hibernate)**: Ejecuta la aplicación adaptada con interfaz de consola usando Hibernate
+4. **Interfaz Gráfica (Hibernate)**: Ejecuta la aplicación adaptada con interfaz gráfica usando Hibernate
+
+**Opción A (Implementación directa):**
+1. **Direct - Interfaz de Consola (Hibernate)**: Ejecuta la implementación directa con interfaz de consola
+2. **Direct - Interfaz Gráfica (Hibernate)**: Ejecuta la implementación directa con interfaz gráfica
 
 ### Desde línea de comandos
 
@@ -191,7 +239,7 @@ Compilar el proyecto:
 mvn clean package
 ```
 
-Ejecutar con diferentes configuraciones:
+**Opciones de ejecución B (Adaptación):**
 ```bash
 # Interfaz de consola con SQLite (predeterminado)
 java -jar target/tarea4_1-1.0-SNAPSHOT.jar
@@ -206,14 +254,42 @@ java -jar target/tarea4_1-1.0-SNAPSHOT.jar -db hibernate
 java -jar target/tarea4_1-1.0-SNAPSHOT.jar -i grafica -db hibernate
 ```
 
-## Comparación con la implementación original
+**Opciones de ejecución A (Implementación directa):**
+```bash
+# Interfaz de consola con Hibernate (implementación directa)
+java -cp target/tarea4_1-1.0-SNAPSHOT.jar acceso.datos.DirectMain
 
-Esta implementación:
+# Interfaz gráfica con Hibernate (implementación directa)
+java -cp target/tarea4_1-1.0-SNAPSHOT.jar acceso.datos.DirectMain -i grafica
+```
 
-1. **Mantiene la interfaz de usuario intacta**: No hay cambios en la experiencia del usuario final.
-2. **Preserva las interfaces DAO**: Las interfaces se mantienen sin cambios.
-3. **Usa el mismo esquema de base de datos**: No hay modificaciones en la estructura de las tablas.
-4. **Añade soporte para Hibernate**: Permite usar Hibernate o SQLite indistintamente.
+## Comparación entre implementaciones
+
+### Opción A (Implementación directa)
+
+**Ventajas:**
+- Código más limpio y conciso
+- Mejor aprovechamiento de las capacidades de Hibernate
+- Gestión más eficiente de sesiones y transacciones
+- Eliminación de capas intermedias innecesarias
+
+**Inconvenientes:**
+- Requiere reestructurar el código existente
+- Mayor esfuerzo de migración inicial
+- Menos compatibilidad con código legado
+
+### Opción B (Adaptación)
+
+**Ventajas:**
+- Mantiene la estructura original del código
+- Facilita la transición gradual hacia Hibernate
+- Mayor compatibilidad con el código existente
+- Permite seguir utilizando la implementación original
+
+**Inconvenientes:**
+- Añade capas adicionales de complejidad
+- Código menos optimizado para Hibernate
+- Puede tener peor rendimiento debido a las capas adicionales
 
 ## Depuración y solución de problemas
 
@@ -234,6 +310,15 @@ Esta implementación:
 ### Logs
 
 Los logs se configuran en `logback.xml` y proporcionan información detallada sobre las operaciones de Hibernate.
+
+## Conclusión
+
+Este proyecto demuestra dos enfoques diferentes para integrar Hibernate en una aplicación Java existente:
+
+1. **Opción A**: Modificación directa para aprovechar al máximo las capacidades de Hibernate.
+2. **Opción B**: Adaptación con mínimas modificaciones para mantener la compatibilidad con el código existente.
+
+Ambas implementaciones cumplen con el objetivo de utilizar Hibernate como capa de acceso a datos, pero cada una tiene sus ventajas e inconvenientes que la hacen más adecuada según el contexto y los requisitos específicos del proyecto.
 
 ## Licencia
 
