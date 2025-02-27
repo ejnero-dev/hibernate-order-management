@@ -39,6 +39,7 @@ public abstract class DAOFactory {
             case SQLITE -> new SQLiteDAOFactory(config);
             case MYSQL -> throw new UnsupportedOperationException("MySQL no implementado aún");
             case POSTGRESQL -> throw new UnsupportedOperationException("PostgreSQL no implementado aún");
+            case HIBERNATE -> new HibernateDAOFactory(config);
         };
     }
 

@@ -1,13 +1,28 @@
 package acceso.datos.model;
 
+import jakarta.persistence.*;
+
 /**
  * Clase que representa un cliente en la base de datos.
  */
+@Entity
+@Table(name = "Clientes")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")
     private int idCliente;
+    
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
+    
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
+    
+    @Column(name = "telefono", length = 15)
     private String telefono;
+    
+    @Column(name = "id_zona", nullable = false)
     private int idZona;
 
     /**

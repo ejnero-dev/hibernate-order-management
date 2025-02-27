@@ -17,5 +17,10 @@ public enum DatabaseType {
     /**
      * Tipo de base de datos PostgreSQL.
      */
-    POSTGRESQL
+    POSTGRESQL,
+    
+    /**
+     * Tipo de acceso a datos mediante Hibernate ORM.
+     */
+    HIBERNATE
 }

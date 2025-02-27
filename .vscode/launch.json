@@ -3,19 +3,35 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Interfaz de Consola",
+            "name": "Interfaz de Consola (SQLite)",
             "request": "launch",
             "mainClass": "acceso.datos.Main",
-            "args": ["-i", "consola"],
-            "projectName": "tarea4_1"
+            "args": ["-i", "consola", "-db", "sqlite"],
+            "projectName": "tarea5_1b"
         },
         {
             "type": "java",
-            "name": "Interfaz Gráfica",
+            "name": "Interfaz Gráfica (SQLite)",
             "request": "launch",
             "mainClass": "acceso.datos.Main", 
-            "args": ["-i", "grafica"],
-            "projectName": "tarea4_1"
+            "args": ["-i", "grafica", "-db", "sqlite"],
+            "projectName": "tarea5_1b"
+        },
+        {
+            "type": "java",
+            "name": "Interfaz de Consola (Hibernate)",
+            "request": "launch",
+            "mainClass": "acceso.datos.Main",
+            "args": ["-i", "consola", "-db", "hibernate"],
+            "projectName": "tarea5_1b"
+        },
+        {
+            "type": "java",
+            "name": "Interfaz Gráfica (Hibernate)",
+            "request": "launch",
+            "mainClass": "acceso.datos.Main", 
+            "args": ["-i", "grafica", "-db", "hibernate"],
+            "projectName": "tarea5_1b"
         }
     ]
 }

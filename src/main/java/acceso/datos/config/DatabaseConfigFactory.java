@@ -7,7 +7,7 @@ public class DatabaseConfigFactory {
     /**
      * Crea una configuración de base de datos según el tipo proporcionado y las propiedades dadas.
      *
-     * @param type         Tipo de la base de datos (SQLITE, MYSQL, POSTGRESQL).
+     * @param type         Tipo de la base de datos (SQLITE, MYSQL, POSTGRESQL, HIBERNATE).
      * @param properties   Propiedades necesarias para configurar la base de datos.
      * @return Una instancia de {@link DatabaseConfig} configurada según el tipo especificado.
      */
@@ -16,6 +16,7 @@ public class DatabaseConfigFactory {
             case SQLITE -> createSQLiteConfig(properties);
             case MYSQL -> createMySQLConfig(properties);
             case POSTGRESQL -> createPostgreSQLConfig(properties);
+            case HIBERNATE -> createHibernateConfig(properties);
         };
     }
 
@@ -47,5 +48,21 @@ public class DatabaseConfigFactory {
      */
     private static DatabaseConfig createPostgreSQLConfig(DatabaseProperties properties) {
         throw new UnsupportedOperationException("PostgreSQL not implemented yet");
+    }
+    
+    /**
+     * Crea una configuración de base de datos para Hibernate.
+     *
+     * @param properties Propiedades necesarias para configurar la base de datos con Hibernate.
+     * @return Una instancia de {@link DatabaseConfig} configurada para Hibernate.
+     */
+    private static DatabaseConfig createHibernateConfig(DatabaseProperties properties) {
+        return new HibernateConfig(
+            properties.getUrl(),
+            properties.getUsername(),
+            properties.getPassword(),
+            properties.getMaxPoolSize(),
+            properties.getMinPoolSize()
+        );
     }
 }

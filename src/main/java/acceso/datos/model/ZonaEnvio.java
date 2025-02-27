@@ -3,20 +3,29 @@
  */
 package acceso.datos.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Zonas_Envio")
 public class ZonaEnvio {
     /**
      * Identificador único de la zona de envío.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_zona")
     private int idZona;
     
     /**
      * Nombre descriptivo de la zona de envío.
      */
+    @Column(name = "nombre_zona", nullable = false, length = 100)
     private String nombreZona;
     
     /**
      * Tarifa asociada al envío a esta zona.
      */
+    @Column(name = "tarifa_envio", nullable = false)
     private double tarifaEnvio;
 
     /**

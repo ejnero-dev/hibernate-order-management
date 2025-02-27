@@ -35,6 +35,7 @@ public class Main {
             logger.debug("Configurando opciones de línea de comandos");
             Options options = new Options();
             options.addOption("i", "interfaz", true, "Interfaz a usar (consola/grafica)");
+            options.addOption("db", "database", true, "Tipo de base de datos (sqlite/hibernate)");
             
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(options, args);
@@ -43,6 +44,17 @@ public class Main {
             String interfaz = cmd.getOptionValue("i", "consola");
             logger.info("Interfaz seleccionada: {}", interfaz);
             
+            // Obtener el tipo de base de datos seleccionada
+            String dbType = cmd.getOptionValue("db", "sqlite").toUpperCase();
+            DatabaseType databaseType;
+            try {
+                databaseType = DatabaseType.valueOf(dbType);
+                logger.info("Tipo de base de datos seleccionada: {}", databaseType);
+            } catch (IllegalArgumentException e) {
+                logger.warn("Tipo de base de datos no válido: {}. Usando SQLite por defecto.", dbType);
+                databaseType = DatabaseType.SQLITE;
+            }
+            
             // Configuración de base de datos
             logger.debug("Inicializando configuración de base de datos");
             DatabaseProperties properties = new DatabaseProperties.Builder()
@@ -50,12 +62,12 @@ public class Main {
                 .maxPoolSize(5)
                 .build();
             
-            DatabaseConfig databaseConfig = DatabaseConfigFactory.createConfig(DatabaseType.SQLITE, properties);
+            DatabaseConfig databaseConfig = DatabaseConfigFactory.createConfig(databaseType, properties);
             logger.info("Conexión a base de datos establecida");
 
             // Creación de DAOs
             logger.debug("Inicializando factories y DAOs");
-            DAOFactory daoFactory = DAOFactory.getDAOFactory(DatabaseType.SQLITE, databaseConfig);
+            DAOFactory daoFactory = DAOFactory.getDAOFactory(databaseType, databaseConfig);
             ClienteDAO clienteDAO = daoFactory.createClienteDAO();
             PedidoDAO pedidoDAO = daoFactory.createPedidoDAO();
             ZonaEnvioDAO zonaEnvioDAO = daoFactory.createZonaEnvioDAO();

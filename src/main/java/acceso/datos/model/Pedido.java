@@ -1,14 +1,26 @@
 package acceso.datos.model;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 /**
  * Clase que representa un pedido en la base de datos.
  */
+@Entity
+@Table(name = "Pedidos")
 public class Pedido {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pedido")
     private int idPedido; // Identificador único del pedido
+    
+    @Column(name = "fecha", nullable = false)
     private LocalDate fecha; // Fecha en que se realizó el pedido
+    
+    @Column(name = "importe_total", nullable = false)
     private double importeTotal; // Importe total del pedido
+    
+    @Column(name = "id_cliente", nullable = false)
     private int idCliente; // ID del cliente que realizó el pedido
 
     /**

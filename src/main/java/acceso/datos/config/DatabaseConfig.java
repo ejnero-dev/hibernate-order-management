@@ -67,7 +67,7 @@ public interface DatabaseConfig {
     /**
      * Método estático que crea una instancia de configuración de base de datos según el tipo especificado.
      *
-     * @param type El tipo de base de datos (SQLITE, MYSQL, POSTGRESQL).
+     * @param type El tipo de base de datos (SQLITE, MYSQL, POSTGRESQL, HIBERNATE).
      * @param url La URL de conexión a la base de datos.
      * @param username El nombre de usuario para autenticarse en la base de datos.
      * @param password La contraseña para autenticarse en la base de datos.
@@ -78,6 +78,7 @@ public interface DatabaseConfig {
             case SQLITE -> new SQLiteConfig(url);
             case MYSQL -> throw new UnsupportedOperationException("MySQL not implemented yet");
             case POSTGRESQL -> throw new UnsupportedOperationException("PostgreSQL not implemented yet");
+            case HIBERNATE -> new HibernateConfig(url, username, password, 10, 1);
         };
     }
 }
