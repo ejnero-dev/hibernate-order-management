@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"acceso.datos"},{"l":"acceso.datos.config"},{"l":"acceso.datos.dao.impl.sqlite"},{"l":"acceso.datos.dao.interfaces"},{"l":"acceso.datos.factory"},{"l":"acceso.datos.model"},{"l":"acceso.datos.ui"},{"l":"acceso.datos.util"},{"l":"All Packages","u":"allpackages-index.html"}];updateSearchResults();
