@@ -1,7 +1,6 @@
 package acceso.datos.config;
 
 import acceso.datos.hibernate.HibernateUtil;
-import acceso.datos.util.DatabaseException;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

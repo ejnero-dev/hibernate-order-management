@@ -3,7 +3,6 @@ package acceso.datos.dao.direct;
 import acceso.datos.dao.interfaces.ZonaEnvioDAO;
 import acceso.datos.hibernate.SessionManager;
 import acceso.datos.model.ZonaEnvio;
-import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
