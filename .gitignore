@@ -1,0 +1,21 @@
+# Compiled files
+target/
+*.class
+dependency-reduced-pom.xml
+
+# IDE
+.idea/
+*.iml
+
+# Logs
+logs/*.log
+
+# Windows artifacts
+*:Zone.Identifier
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database files (optional - uncomment if you don't want to track)
+# *.db

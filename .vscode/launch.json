@@ -3,51 +3,51 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Interfaz de Consola (SQLite)",
+            "name": "Console UI (SQLite)",
             "request": "launch",
-            "mainClass": "acceso.datos.Main",
+            "mainClass": "com.emilio.orders.Main",
             "args": ["-i", "consola", "-db", "sqlite"],
-            "projectName": "tarea4_1"
+            "projectName": "hibernate-order-management"
         },
         {
             "type": "java",
-            "name": "Interfaz Gráfica (SQLite)",
+            "name": "Graphical UI (SQLite)",
             "request": "launch",
-            "mainClass": "acceso.datos.Main", 
+            "mainClass": "com.emilio.orders.Main",
             "args": ["-i", "grafica", "-db", "sqlite"],
-            "projectName": "tarea4_1"
+            "projectName": "hibernate-order-management"
         },
         {
             "type": "java",
-            "name": "Interfaz de Consola (Hibernate)",
+            "name": "Console UI (Hibernate)",
             "request": "launch",
-            "mainClass": "acceso.datos.Main",
+            "mainClass": "com.emilio.orders.Main",
             "args": ["-i", "consola", "-db", "hibernate"],
-            "projectName": "tarea4_1"
+            "projectName": "hibernate-order-management"
         },
         {
             "type": "java",
-            "name": "Interfaz Gráfica (Hibernate)",
+            "name": "Graphical UI (Hibernate)",
             "request": "launch",
-            "mainClass": "acceso.datos.Main", 
+            "mainClass": "com.emilio.orders.Main",
             "args": ["-i", "grafica", "-db", "hibernate"],
-            "projectName": "tarea4_1"
+            "projectName": "hibernate-order-management"
         },
         {
             "type": "java",
-            "name": "Direct - Interfaz de Consola (Hibernate)",
+            "name": "Direct - Console UI (Hibernate)",
             "request": "launch",
-            "mainClass": "acceso.datos.DirectMain",
+            "mainClass": "com.emilio.orders.DirectMain",
             "args": ["-i", "consola"],
-            "projectName": "tarea4_1"
+            "projectName": "hibernate-order-management"
         },
         {
             "type": "java",
-            "name": "Direct - Interfaz Gráfica (Hibernate)",
+            "name": "Direct - Graphical UI (Hibernate)",
             "request": "launch",
-            "mainClass": "acceso.datos.DirectMain", 
+            "mainClass": "com.emilio.orders.DirectMain",
             "args": ["-i", "grafica"],
-            "projectName": "tarea4_1"
+            "projectName": "hibernate-order-management"
         }
     ]
 }

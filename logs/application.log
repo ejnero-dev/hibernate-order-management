@@ -124,3 +124,5 @@
 12:17:04.748 [main] INFO  a.datos.hibernate.SessionManager - Cerrando SessionFactory
 12:17:04.749 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:sqlite:src/main/resources/pedidos.db]
 12:17:04.751 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory cerrada correctamente
+14:27:09.970 [main] INFO  com.emilio.orders.Main - Iniciando aplicación de gestión de pedidos
+14:27:09.977 [main] ERROR com.emilio.orders.Main - Error al parsear argumentos de línea de comandos: Unrecognized option: --help

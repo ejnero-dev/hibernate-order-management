@@ -21,8 +21,8 @@
         <property name="hibernate.connection.url.parameters">foreign_keys=true</property>
         
         <!-- Mapeo de clases -->
-        <mapping class="acceso.datos.model.ZonaEnvio"/>
-        <mapping class="acceso.datos.model.Cliente"/>
-        <mapping class="acceso.datos.model.Pedido"/>
+        <mapping class="com.emilio.orders.model.ZonaEnvio"/>
+        <mapping class="com.emilio.orders.model.Cliente"/>
+        <mapping class="com.emilio.orders.model.Pedido"/>
     </session-factory>
 </hibernate-configuration>

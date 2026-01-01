@@ -1,325 +1,244 @@
-# Sistema de Gestión de Pedidos con Hibernate ORM (Tarea 5.1)
+# Hibernate Order Management
 
-Este proyecto implementa un sistema de gestión de pedidos utilizando Hibernate ORM como capa de acceso a datos, siguiendo las dos opciones del enunciado:
+![Java](https://img.shields.io/badge/Java-17-orange?style=flat-square&logo=openjdk)
+![Hibernate](https://img.shields.io/badge/Hibernate-6.4.1-59666C?style=flat-square&logo=hibernate)
+![SQLite](https://img.shields.io/badge/SQLite-3.48-003B57?style=flat-square&logo=sqlite)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-- **Opción A**: Modificar el código original para usar directamente la API de Hibernate/JPA.
-- **Opción B**: Adaptar el sistema original manteniendo su estructura y creando una capa de traducción entre la API existente y Hibernate/JPA.
+A complete order management system demonstrating **Hibernate ORM** integration with enterprise design patterns. Features dual database backends (JDBC/Hibernate) and dual user interfaces (Console/Swing).
 
-## Descripción
+## Overview
 
-El sistema permite gestionar:
-- Zonas de envío con tarifas asociadas
-- Clientes pertenecientes a distintas zonas
-- Pedidos realizados por los clientes
+This project showcases a production-ready approach to building data-driven Java applications:
 
-## Requisitos
+- **Clean Architecture**: Separation of concerns with DAO pattern and Abstract Factory
+- **ORM Integration**: Full Hibernate/JPA implementation alongside native JDBC
+- **Dual Interfaces**: Both console and graphical (Swing) user interfaces
+- **Transaction Management**: Proper session and transaction handling
 
-- Java JDK 17 o superior
-- Maven 3.6 o superior
-- SQLite (incluido como dependencia)
+## Features
 
-## Tecnologías utilizadas
+- CRUD operations for Customers, Orders, and Shipping Zones
+- Customer management with zone assignment
+- Order tracking with automatic total calculation
+- Shipping zone management with configurable rates
+- Query customers by zone and calculate total spending
+- Switch between database backends at runtime
 
-- **Hibernate ORM**: Framework de mapeo objeto-relacional
-- **JPA**: API de persistencia de Java
-- **SQLite**: Base de datos ligera para almacenamiento local
-- **Swing**: Para la interfaz gráfica
-- **SLF4J/Logback**: Para el sistema de logs
+## Technologies
 
-## Implementaciones
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Java | 17 | Core language |
+| Hibernate ORM | 6.4.1 | Object-Relational Mapping |
+| Jakarta Persistence | 3.1.0 | JPA API |
+| SQLite | 3.48.0 | Embedded database |
+| HikariCP | 6.2.1 | Connection pooling (JDBC mode) |
+| SLF4J + Logback | 2.1.0 / 1.5.16 | Logging framework |
+| Apache Commons CLI | 1.5.0 | Command-line parsing |
+| Maven | 3.6+ | Build tool |
 
-### Opción A: Implementación directa con API de Hibernate
-
-Esta implementación modifica el código original para utilizar directamente Hibernate. Utiliza un enfoque más limpio y simplificado, aprovechando al máximo las características de Hibernate.
-
-#### Clases principales
-
-- `SessionManager`: Gestiona la SessionFactory de Hibernate y proporciona métodos para ejecutar operaciones dentro de transacciones.
-- `DirectClienteDAO`, `DirectPedidoDAO`, `DirectZonaEnvioDAO`: Implementaciones DAO que utilizan directamente la API de Hibernate.
-- `DirectDAOFactory`: Factoría que proporciona instancias de las implementaciones DAO.
-- `DirectMain`: Punto de entrada para esta implementación.
-
-#### Características
-
-- Uso optimizado de sesiones y transacciones de Hibernate
-- Gestión centralizada de la SessionFactory mediante el patrón Singleton
-- Ejecución de operaciones mediante expresiones lambda dentro de transacciones
-- Código más limpio y directo al eliminar capas intermedias
-
-#### Estructura del código (Opción A)
+## Architecture
 
 ```
-src/
-  main/
-    java/
-      acceso/
-        datos/
-          dao/
-            direct/
-              DirectClienteDAO.java        # DAO de clientes con API directa de Hibernate
-              DirectPedidoDAO.java         # DAO de pedidos con API directa de Hibernate
-              DirectZonaEnvioDAO.java      # DAO de zonas con API directa de Hibernate
-          factory/
-            DirectDAOFactory.java          # Factoría para los DAOs directos
-          hibernate/
-            SessionManager.java            # Gestor de sesiones de Hibernate
-          model/                          # Clases modelo con anotaciones JPA (compartidas)
-            Cliente.java
-            Pedido.java
-            ZonaEnvio.java
-          DirectMain.java                 # Punto de entrada para la implementación directa
++-------------------------------------------------------------+
+|                      User Interface                          |
+|                  +----------+  +----------+                  |
+|                  | Console  |  |  Swing   |                  |
+|                  |   UI     |  |   UI     |                  |
+|                  +----+-----+  +----+-----+                  |
+|                       +------+------+                        |
+|                              |                               |
+|  +---------------------------+---------------------------+   |
+|  |                    DAO Interfaces                     |   |
+|  |     ClienteDAO  |  PedidoDAO  |  ZonaEnvioDAO         |   |
+|  +---------------------------+---------------------------+   |
+|                              |                               |
+|         +--------------------+--------------------+          |
+|         |                    |                    |          |
+|  +------+------+     +-------+-----+     +-------+-----+     |
+|  |   SQLite    |     |  Hibernate  |     |   Direct    |     |
+|  |    DAOs     |     |    DAOs     |     |    DAOs     |     |
+|  |   (JDBC)    |     |   (JPA)     |     | (Hibernate) |     |
+|  +------+------+     +------+------+     +------+------+     |
+|         |                   |                    |           |
+|         +---------+---------+----------+---------+           |
+|                   |                    |                     |
+|            +------+------+      +------+------+              |
+|            |  HikariCP   |      |   Session   |              |
+|            |    Pool     |      |   Manager   |              |
+|            +------+------+      +------+------+              |
+|                   +-----------+--------+                     |
+|                               |                              |
+|                    +----------+--------+                     |
+|                    |    SQLite DB      |                     |
+|                    |   pedidos.db      |                     |
+|                    +-------------------+                     |
++-------------------------------------------------------------+
 ```
 
-### Opción B: Adaptación manteniendo la estructura original
-
-Esta implementación adapta el sistema existente para usar Hibernate sin modificar su estructura original. Se añaden solo las anotaciones JPA necesarias y se crean adaptadores que permiten que la estructura original funcione con Hibernate.
-
-#### Clases principales
-
-- `HibernateUtil`: Gestiona la SessionFactory de Hibernate.
-- `HibernateClienteDAO`, `HibernatePedidoDAO`, `HibernateZonaEnvioDAO`: Implementaciones DAO que adaptan Hibernate a la interfaz existente.
-- `HibernateDAOFactory`: Factoría para crear instancias de los DAOs de Hibernate.
-- `HibernateConfig`: Configuración de base de datos para Hibernate.
-- Clases modelo con anotaciones JPA.
-
-#### Características
-
-- Preserva la estructura original del sistema
-- Mantiene la interfaz de usuario y la experiencia del usuario final intactas
-- Usa Hibernate como una implementación alternativa a SQLite
-- Añade soporte para Hibernate mediante una capa de adaptación
-
-#### Estructura del código (Opción B)
+## Project Structure
 
 ```
-src/
-  main/
-    java/
-      acceso/
-        datos/
-          config/
-            DatabaseConfig.java            # Interfaz actualizada para soportar Hibernate
-            DatabaseConfigFactory.java     # Factoría actualizada
-            DatabaseType.java              # Enum actualizado con tipo HIBERNATE
-            HibernateConfig.java           # Nueva implementación para Hibernate
-            SQLiteConfig.java              # Configuración original
-          dao/
-            impl/
-              hibernate/                   # Nuevas implementaciones para Hibernate
-                HibernateClienteDAO.java
-                HibernatePedidoDAO.java
-                HibernateZonaEnvioDAO.java
-              sqlite/                      # Implementaciones originales
-                ...
-            interfaces/                    # Interfaces DAO sin modificaciones
-              ...
-          factory/
-            DAOFactory.java                # Actualizado para soportar Hibernate
-            HibernateDAOFactory.java       # Nueva factoría para Hibernate
-            SQLiteDAOFactory.java          # Factoría original
-          hibernate/
-            HibernateUtil.java             # Clase utilidad para SessionFactory
-          Main.java                       # Clase principal actualizada
+src/main/java/com/emilio/orders/
+├── Main.java                 # Entry point with Factory pattern
+├── DirectMain.java           # Entry point for direct Hibernate
+├── config/                   # Database configuration
+│   ├── DatabaseConfig.java   # Configuration interface
+│   ├── DatabaseConfigFactory.java
+│   ├── DatabaseProperties.java
+│   ├── DatabaseType.java     # Enum: SQLITE, HIBERNATE
+│   ├── HibernateConfig.java
+│   └── SQLiteConfig.java
+├── dao/
+│   ├── interfaces/           # DAO contracts
+│   │   ├── ClienteDAO.java
+│   │   ├── PedidoDAO.java
+│   │   └── ZonaEnvioDAO.java
+│   ├── impl/
+│   │   ├── hibernate/        # Hibernate implementations
+│   │   └── sqlite/           # JDBC implementations
+│   └── direct/               # Direct Hibernate DAOs
+├── factory/                  # Abstract Factory pattern
+│   ├── DAOFactory.java
+│   ├── HibernateDAOFactory.java
+│   ├── SQLiteDAOFactory.java
+│   └── DirectDAOFactory.java
+├── hibernate/                # Hibernate utilities
+│   └── SessionManager.java   # Singleton session management
+├── model/                    # JPA entities
+│   ├── Cliente.java
+│   ├── Pedido.java
+│   └── ZonaEnvio.java
+├── ui/                       # User interfaces
+│   ├── UI.java               # Interface contract
+│   ├── ConsoleUI.java
+│   ├── GraphicalUI.java
+│   └── SwingMenuBuilder.java
+└── util/                     # Utilities
+    ├── DatabaseException.java
+    ├── QueryUtils.java
+    └── TransactionUtils.java
 ```
 
-## Detalles de implementación
+## Getting Started
 
-### Anotaciones JPA en clases modelo (compartido por ambas opciones)
+### Prerequisites
 
-Las clases modelo han sido anotadas con JPA para su uso con Hibernate:
+- Java 17 or higher
+- Maven 3.6 or higher
 
-```java
-@Entity
-@Table(name = "Clientes")
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
-    private int idCliente;
-    
-    // Resto de atributos y métodos
-}
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/hibernate-order-management.git
+cd hibernate-order-management
 ```
 
-### Configuración de Hibernate (compartido por ambas opciones)
-
-Archivo `hibernate.cfg.xml` en el directorio `resources`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.url">jdbc:sqlite:src/main/resources/pedidos.db</property>
-        <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <!-- Otras propiedades -->
-        
-        <!-- Mapeo de clases -->
-        <mapping class="acceso.datos.model.ZonaEnvio"/>
-        <mapping class="acceso.datos.model.Cliente"/>
-        <mapping class="acceso.datos.model.Pedido"/>
-    </session-factory>
-</hibernate-configuration>
-```
-
-### Ejemplo de implementación DAO
-
-#### Opción A (Implementación directa)
-
-```java
-public class DirectClienteDAO implements ClienteDAO {
-    private final SessionManager sessionManager;
-
-    public DirectClienteDAO() {
-        this.sessionManager = SessionManager.getInstance();
-    }
-
-    @Override
-    public void insert(Cliente cliente) throws SQLException {
-        try {
-            sessionManager.execute(session -> {
-                session.persist(cliente);
-            });
-        } catch (Exception e) {
-            throw new SQLException("Error al insertar cliente: " + e.getMessage(), e);
-        }
-    }
-    
-    // Otros métodos
-}
-```
-
-#### Opción B (Adaptación)
-
-```java
-public class HibernateClienteDAO implements ClienteDAO {
-    @Override
-    public void insert(Cliente cliente) throws SQLException {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            session.persist(cliente);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            throw new SQLException("Error al insertar cliente: " + e.getMessage(), e);
-        }
-    }
-    
-    // Otros métodos
-}
-```
-
-## Cómo ejecutar la aplicación
-
-### Desde VS Code
-
-Puedes usar las configuraciones de lanzamiento definidas en `.vscode/launch.json`:
-
-**Opción B (Adaptación):**
-1. **Interfaz de Consola (SQLite)**: Ejecuta la aplicación adaptada con interfaz de consola usando SQLite
-2. **Interfaz Gráfica (SQLite)**: Ejecuta la aplicación adaptada con interfaz gráfica usando SQLite
-3. **Interfaz de Consola (Hibernate)**: Ejecuta la aplicación adaptada con interfaz de consola usando Hibernate
-4. **Interfaz Gráfica (Hibernate)**: Ejecuta la aplicación adaptada con interfaz gráfica usando Hibernate
-
-**Opción A (Implementación directa):**
-1. **Direct - Interfaz de Consola (Hibernate)**: Ejecuta la implementación directa con interfaz de consola
-2. **Direct - Interfaz Gráfica (Hibernate)**: Ejecuta la implementación directa con interfaz gráfica
-
-### Desde línea de comandos
-
-Compilar el proyecto:
+2. Build the project:
 ```bash
 mvn clean package
 ```
 
-**Opciones de ejecución B (Adaptación):**
+### Running the Application
+
+**Console UI with SQLite (JDBC):**
 ```bash
-# Interfaz de consola con SQLite (predeterminado)
-java -jar target/tarea4_1-1.0-SNAPSHOT.jar
-
-# Interfaz gráfica con SQLite
-java -jar target/tarea4_1-1.0-SNAPSHOT.jar -i grafica
-
-# Interfaz de consola con Hibernate
-java -jar target/tarea4_1-1.0-SNAPSHOT.jar -db hibernate
-
-# Interfaz gráfica con Hibernate
-java -jar target/tarea4_1-1.0-SNAPSHOT.jar -i grafica -db hibernate
+java -jar target/hibernate-order-management-1.0-SNAPSHOT.jar -i consola -db sqlite
 ```
 
-**Opciones de ejecución A (Implementación directa):**
+**Graphical UI with Hibernate:**
 ```bash
-# Interfaz de consola con Hibernate (implementación directa)
-java -cp target/tarea4_1-1.0-SNAPSHOT.jar acceso.datos.DirectMain
-
-# Interfaz gráfica con Hibernate (implementación directa)
-java -cp target/tarea4_1-1.0-SNAPSHOT.jar acceso.datos.DirectMain -i grafica
+java -jar target/hibernate-order-management-1.0-SNAPSHOT.jar -i grafica -db hibernate
 ```
 
-## Comparación entre implementaciones
+**Direct Hibernate mode:**
+```bash
+java -cp target/hibernate-order-management-1.0-SNAPSHOT.jar com.emilio.orders.DirectMain -i consola
+```
 
-### Opción A (Implementación directa)
+### Command Line Options
 
-**Ventajas:**
-- Código más limpio y conciso
-- Mejor aprovechamiento de las capacidades de Hibernate
-- Gestión más eficiente de sesiones y transacciones
-- Eliminación de capas intermedias innecesarias
+| Option | Values | Description |
+|--------|--------|-------------|
+| `-i, --interfaz` | `consola`, `grafica` | UI mode (default: consola) |
+| `-db, --database` | `sqlite`, `hibernate` | Database backend (default: sqlite) |
 
-**Inconvenientes:**
-- Requiere reestructurar el código existente
-- Mayor esfuerzo de migración inicial
-- Menos compatibilidad con código legado
+## Screenshots
 
-### Opción B (Adaptación)
+*Screenshots will be added after building the project*
 
-**Ventajas:**
-- Mantiene la estructura original del código
-- Facilita la transición gradual hacia Hibernate
-- Mayor compatibilidad con el código existente
-- Permite seguir utilizando la implementación original
+<!--
+![Console Menu](docs/screenshots/console-menu.png)
+![Swing UI](docs/screenshots/swing-main.png)
+-->
 
-**Inconvenientes:**
-- Añade capas adicionales de complejidad
-- Código menos optimizado para Hibernate
-- Puede tener peor rendimiento debido a las capas adicionales
+## Design Decisions
 
-## Depuración y solución de problemas
+### Why Two DAO Implementations?
 
-### Problemas comunes y soluciones
+This project demonstrates two approaches to database access:
 
-1. **Error "No CurrentSessionContext configured"**:
-   - Verifica la configuración en `hibernate.cfg.xml`
-   - Asegúrate de usar el método correcto para obtener la sesión
+1. **JDBC (SQLite DAOs)**: Direct SQL with connection pooling via HikariCP. Offers fine-grained control and better performance for simple queries.
 
-2. **Errores con SQLite y claves foráneas**:
-   - SQLite tiene limitaciones con las restricciones de claves foráneas
-   - Verifica que están activadas con la propiedad `foreign_keys=true`
+2. **Hibernate (JPA DAOs)**: Object-Relational Mapping with automatic transaction management. Provides abstraction, portability, and reduced boilerplate.
 
-3. **Problemas con el mapeo de entidades**:
-   - Comprueba las anotaciones JPA en las clases modelo
-   - Verifica que las clases están registradas en `hibernate.cfg.xml`
+Both implementations share the same interfaces, making them interchangeable at runtime.
 
-### Logs
+### Why Dual User Interfaces?
 
-Los logs se configuran en `logback.xml` y proporcionan información detallada sobre las operaciones de Hibernate.
+- **Console UI**: Lightweight, scriptable, suitable for servers or automated tasks
+- **Swing UI**: Rich graphical interface for end-users who prefer visual interaction
 
-## Conclusión
+### Design Patterns Used
 
-Este proyecto demuestra dos enfoques diferentes para integrar Hibernate en una aplicación Java existente:
+| Pattern | Implementation |
+|---------|----------------|
+| **DAO** | `ClienteDAO`, `PedidoDAO`, `ZonaEnvioDAO` interfaces with multiple implementations |
+| **Abstract Factory** | `DAOFactory` creates families of related DAOs |
+| **Singleton** | `SessionManager` ensures single SessionFactory instance |
+| **Strategy** | Switchable database configurations at runtime |
+| **Builder** | `DatabaseProperties.Builder` for configuration |
 
-1. **Opción A**: Modificación directa para aprovechar al máximo las capacidades de Hibernate.
-2. **Opción B**: Adaptación con mínimas modificaciones para mantener la compatibilidad con el código existente.
+## Database Schema
 
-Ambas implementaciones cumplen con el objetivo de utilizar Hibernate como capa de acceso a datos, pero cada una tiene sus ventajas e inconvenientes que la hacen más adecuada según el contexto y los requisitos específicos del proyecto.
+```sql
+-- Shipping Zones
+CREATE TABLE Zonas_Envio (
+    id_zona INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre_zona VARCHAR(100) NOT NULL,
+    tarifa_envio REAL NOT NULL
+);
 
-## Licencia
+-- Customers
+CREATE TABLE Clientes (
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefono VARCHAR(15),
+    id_zona INTEGER,
+    FOREIGN KEY (id_zona) REFERENCES Zonas_Envio(id_zona)
+);
 
-Este proyecto es parte de un ejercicio académico y no está licenciado para uso comercial.
+-- Orders
+CREATE TABLE Pedidos (
+    id_pedido INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha DATE NOT NULL,
+    importe_total REAL NOT NULL,
+    id_cliente INTEGER,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Built with Java and Hibernate ORM
