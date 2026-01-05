@@ -21,3 +21,27 @@ Thumbs.db
 # *.db
 *.db-shm
 *.db-wal
+
+# === Añadido por script de limpieza ===
+# Build output
+target/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database files (si no quieres compartir datos de ejemplo)
+# *.db
