@@ -167,12 +167,19 @@ java -cp target/hibernate-order-management-1.0-SNAPSHOT.jar com.emilio.orders.Di
 
 ## Screenshots
 
-*Screenshots will be added after building the project*
+### Graphical Interface (Swing)
 
-<!--
-![Console Menu](docs/screenshots/console-menu.png)
-![Swing UI](docs/screenshots/swing-main.png)
--->
+**Main Menu**
+
+![Main Menu](docs/screenshots/swing-main-menu.png)
+
+**Shipping Zones View**
+
+![Shipping Zones](docs/screenshots/swing-shipping-zones.png)
+
+**Customer Management Menu**
+
+![Customer Menu](docs/screenshots/swing-customer-menu.png)
 
 ## Design Decisions
 

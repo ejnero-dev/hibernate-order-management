@@ -126,3 +126,39 @@
 12:17:04.751 [main] INFO  a.datos.hibernate.SessionManager - SessionFactory cerrada correctamente
 14:27:09.970 [main] INFO  com.emilio.orders.Main - Iniciando aplicación de gestión de pedidos
 14:27:09.977 [main] ERROR com.emilio.orders.Main - Error al parsear argumentos de línea de comandos: Unrecognized option: --help
+11:47:27.912 [main] INFO  com.emilio.orders.Main - Iniciando aplicación de gestión de pedidos
+11:47:27.922 [main] INFO  com.emilio.orders.Main - Interfaz seleccionada: grafica
+11:47:27.923 [main] INFO  com.emilio.orders.Main - Tipo de base de datos seleccionada: HIBERNATE
+11:47:27.926 [main] INFO  c.e.orders.hibernate.SessionManager - Inicializando SessionFactory de Hibernate
+11:47:27.991 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+11:47:28.248 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+11:47:28.370 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+11:47:28.376 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+11:47:28.377 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+11:47:28.377 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+11:47:28.377 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:47:28.380 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+11:47:29.250 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+11:47:29.268 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@45843650] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+11:47:29.279 [main] INFO  c.e.orders.hibernate.SessionManager - SessionFactory inicializada correctamente
+11:47:29.280 [main] INFO  c.e.orders.config.HibernateConfig - Configuración de Hibernate inicializada
+11:47:29.280 [main] INFO  com.emilio.orders.Main - Conexión a base de datos establecida
+11:47:29.281 [main] INFO  com.emilio.orders.Main - Iniciando interfaz gráfica
+11:55:58.444 [main] INFO  com.emilio.orders.Main - Iniciando aplicación de gestión de pedidos
+11:55:58.455 [main] INFO  com.emilio.orders.Main - Interfaz seleccionada: grafica
+11:55:58.456 [main] INFO  com.emilio.orders.Main - Tipo de base de datos seleccionada: HIBERNATE
+11:55:58.458 [main] INFO  c.e.orders.hibernate.SessionManager - Inicializando SessionFactory de Hibernate
+11:55:58.522 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+11:55:58.795 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+11:55:58.909 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+11:55:58.914 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.sqlite.JDBC
+11:55:58.915 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:sqlite:src/main/resources/pedidos.db]
+11:55:58.915 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {url.parameters=foreign_keys=true}
+11:55:58.915 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+11:55:58.918 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+11:55:59.848 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+11:55:59.866 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@45843650] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+11:55:59.877 [main] INFO  c.e.orders.hibernate.SessionManager - SessionFactory inicializada correctamente
+11:55:59.877 [main] INFO  c.e.orders.config.HibernateConfig - Configuración de Hibernate inicializada
+11:55:59.877 [main] INFO  com.emilio.orders.Main - Conexión a base de datos establecida
+11:55:59.878 [main] INFO  com.emilio.orders.Main - Iniciando interfaz gráfica
